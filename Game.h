@@ -5,15 +5,16 @@ class RulesetSettings {
         int foodSpawnChance;
         int minimumFood;
         int hazardDamagePerTurn;
-        struct royale {
-            int shrinkEveryNTurns;
-        };
-        struct squad {
-            bool allowBodyCollisions;
-            bool sharedElimination;
-            bool sharedHealth;
-            bool sharedLength;
-        };
+
+        // don't need royale prefix?
+        int shrinkEveryNTurns;
+
+        // don't need squad prefix?
+        bool allowBodyCollisions;
+        bool sharedElimination;
+        bool sharedHealth;
+        bool sharedLength;
+        
     
     public:
         RulesetSettings();

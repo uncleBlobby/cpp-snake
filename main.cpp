@@ -73,6 +73,11 @@ int main() {
     });
 
     svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
+
+        json parsed = json::parse(req.body);
+        json game = parsed["game"];
+        json board = parsed["board"];
+        json me = parsed["you"];
         /*
         SAMPLE RESPONSE 
         {
