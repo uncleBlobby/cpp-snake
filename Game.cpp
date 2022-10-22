@@ -120,8 +120,8 @@ int Move::getScore() const {
 }
 
 void Move::setScore(int s) {
-    std::cout << "Direction: " << direction << std::endl;
-    std::cout << "Score adjust: " << s << std::endl;
+    //std::cout << "Direction: " << direction << std::endl;
+    //std::cout << "Score adjust: " << s << std::endl;
     score += s;
 }
 

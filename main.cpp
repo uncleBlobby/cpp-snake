@@ -2,6 +2,10 @@
 #include "json.hpp"
 
 #include <stdio.h>
+#include <ctime>
+#include <chrono>
+
+typedef std::chrono::high_resolution_clock Clock;
 
 #include "Game.h"
 
@@ -57,7 +61,7 @@ int main() {
 
     svr.Post("/start", [](const httplib::Request& req, httplib::Response &res){
         //printDetails(req);
-        
+
         json parsedReq = json::parse(req.body);
         json g = parsedReq["game"];
         json b = parsedReq["board"];
@@ -88,14 +92,17 @@ int main() {
 
     svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
 
+        time_t turnStart = time(NULL);
+        auto turn_start = Clock::now();
+        
         json parsedReq = json::parse(req.body);
         json g = parsedReq["game"];
         json b = parsedReq["board"];
         json m = parsedReq["you"];
 
-        std::cout << "Me object in request: " << m << std::endl;
-        std::cout << "My body: " << m["body"] << std::endl;
-        std::cout << "My length: " << m["length"] << std::endl;
+        //std::cout << "Me object in request: " << m << std::endl;
+        //std::cout << "My body: " << m["body"] << std::endl;
+        //std::cout << "My length: " << m["length"] << std::endl;
 
         
 
@@ -103,9 +110,9 @@ int main() {
         Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
         Board board = Board(b["height"], b["width"]);
-        std::cout << "Game ID in game class: " << game.getId() << std::endl;
-        std::cout << "Board height in board class: " << board.getHeight() << std::endl;
-        std::cout << "Board width in board class: " << board.getWidth() << std::endl;
+        //std::cout << "Game ID in game class: " << game.getId() << std::endl;
+        //std::cout << "Board height in board class: " << board.getHeight() << std::endl;
+        //std::cout << "Board width in board class: " << board.getWidth() << std::endl;
 
         ScoredMoves scoredMoves;
 
@@ -118,15 +125,15 @@ int main() {
         me.setLength(m["length"]);
 
         for (int i = 0; i < m["length"]; i++){
-            std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
+            //std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
             me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
         }
         
 
-        std::cout << "My head position x: " << me.getHead().x << std::endl;
-        std::cout << "My head position y: " << me.getHead().y << std::endl;
+        //std::cout << "My head position x: " << me.getHead().x << std::endl;
+        //std::cout << "My head position y: " << me.getHead().y << std::endl;
 
-        me.printBody();
+        //me.printBody();
         
 
         // AVOID WALLS //
@@ -168,8 +175,25 @@ int main() {
             scoredMoves.down.setScore(-100);
         };
 
+        // AVOID OWN BODY //
 
-        scoredMoves.printCurrentScoredMoves();
+        for (int i = 1; i < me.getLength(); i++){
+            if ((me.getHead().x + 1 == me.getBodyCoord(i).x) && (me.getHead().y == me.getBodyCoord(i).y)){
+                scoredMoves.right.setScore(-100);
+            }
+            if ((me.getHead().x - 1 == me.getBodyCoord(i).x) && (me.getHead().y == me.getBodyCoord(i).y)){
+                scoredMoves.left.setScore(-100);
+            }
+            if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y + 1 == me.getBodyCoord(i).y)){
+                scoredMoves.up.setScore(-100);
+            }
+            if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y - 1 == me.getBodyCoord(i).y)){
+                scoredMoves.down.setScore(-100);
+            }
+        }
+
+
+        //scoredMoves.printCurrentScoredMoves();
 
         Move best = scoredMoves.returnHighestScoreMove();
 
@@ -187,7 +211,18 @@ int main() {
         //  Convert json object to string.
         std::string s = responseData.dump();
 
-        std::cout << "Response json as string: " << s << std::endl;
+        //std::cout << "Response json as string: " << s << std::endl;
+
+        time_t turnEnd = time(NULL);
+        auto turn_end = Clock::now();
+
+        time_t turnTimeElapsed = turnEnd - turnStart;
+
+        auto turn_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(turn_end - turn_start);
+
+        std::cout << "Time elapsed to move: " << turnTimeElapsed << std::endl;
+        std::cout << "Time elapsed to move (chrono): " << turn_duration.count() << "ns" << std::endl;
+        std::cout << "Time elapsed to move (chrono): " << turn_duration.count() / 1000000000 << "s" << std::endl;
 
         // send string response to client
         res.set_content(s, "application/json");
