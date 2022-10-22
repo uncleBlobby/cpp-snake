@@ -1,4 +1,6 @@
 #include "Game.h"
+#include <iostream>
+#include <vector>
 
 RulesetSettings::RulesetSettings(){
     foodSpawnChance = 0;
@@ -95,4 +97,117 @@ unsigned int Board::getHeight() const {
 
 unsigned int Board::getWidth() const {
     return width;
+}
+
+
+
+Move::Move(){
+    direction = "null";
+    score = 0;
+};
+
+Move::Move(std::string d){
+    direction = d;
+    score = 0;
+};
+
+std::string Move::getDirection() const {
+    return direction;
+}
+
+int Move::getScore() const {
+    return score;
+}
+
+void Move::setScore(int s) {
+    std::cout << "Direction: " << direction << std::endl;
+    std::cout << "Score adjust: " << s << std::endl;
+    score += s;
+}
+
+
+ScoredMoves::ScoredMoves() :left("left"), up("up"), right("right"), down("down") {
+
+}
+
+void ScoredMoves::printCurrentScoredMoves() const {
+    std::cout << "Left:\t" << left.getScore() << std::endl;
+    std::cout << "Up:\t" << up.getScore() << std::endl;
+    std::cout << "Right:\t" << right.getScore() << std::endl;
+    std::cout << "Down:\t" << down.getScore() << std::endl;
+}
+
+Move ScoredMoves::returnHighestScoreMove() const {
+    Move bestMove = left;
+    if (up.getScore() > bestMove.getScore()){
+        bestMove = up;
+    }
+    if (right.getScore() > bestMove.getScore()){
+        bestMove = right;
+    }
+    if (down.getScore() > bestMove.getScore()){
+        bestMove = down;
+    }
+    return bestMove;
+}
+
+Snake::Snake(){
+
+}
+
+Snake::Snake(   std::string i,
+                std::string n,
+                int hlt,
+                int l,
+                Coord hd,
+                int len) {
+    
+    id = i;
+    name = n;
+    health = hlt;
+    latency = l;
+    head = hd;
+    length = len;
+    
+};
+
+void Snake::setId(std::string i){
+    id = i;
+}
+
+void Snake::setName(std::string n){
+    name = n;
+}
+void Snake::setHealth(int h){
+    health = h;
+}
+//void Snake::setBody();
+//void Snake::setLatency();
+void Snake::setHead(Coord h){
+    head.x = h.x;
+    head.y = h.y;
+}
+void Snake::setLength(int l){
+    length = l;
+}
+
+std::string Snake::getId() const {
+    return id;
+}
+
+std::string Snake::getName() const {
+    return name;
+}
+
+int Snake::getHealth() const {
+    return health;
+}
+//
+//
+Coord Snake::getHead() const {
+    return head;
+}
+
+int Snake::getLength() const {
+    return length;
 }

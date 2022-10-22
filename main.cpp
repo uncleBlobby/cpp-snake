@@ -14,7 +14,7 @@ int main() {
     printf("Hello, cpp-snake!\n");
 
     svr.Get("/", [](const httplib::Request& req, httplib::Response &res) {
-        printDetails(req);
+        //printDetails(req);
 
         /*
         SAMPLE RESPONSE 
@@ -40,7 +40,7 @@ int main() {
         //  Convert json object to string.
         std::string s = jResponse.dump();
 
-        std::cout << "Response json as string: " << s << std::endl;
+        //std::cout << "Response json as string: " << s << std::endl;
 
         // send string response to client
         res.set_content(s, "application/json");
@@ -52,11 +52,19 @@ int main() {
     });
 
     svr.Post("/start", [](const httplib::Request& req, httplib::Response &res){
-        printDetails(req);
-        json parsed = json::parse(req.body);
-        json game = parsed["game"];
-        json board = parsed["board"];
-        json me = parsed["you"];
+        //printDetails(req);
+        
+        json parsedReq = json::parse(req.body);
+        json g = parsedReq["game"];
+        json b = parsedReq["board"];
+        json m = parsedReq["you"];
+        
+        RulesetSettings rulesetSettings = RulesetSettings();
+        Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
+        Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
+
+        std::cout << "New game started!\nGame ID: " << game.getId() << std::endl;
+        
         /*
         std::cout << "JSON game variable: " << game << std::endl;
         std::cout << std::endl;
@@ -76,22 +84,56 @@ int main() {
 
     svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
 
-        json parsed = json::parse(req.body);
-        json game = parsed["game"];
-        json board = parsed["board"];
-        json me = parsed["you"];
+        json parsedReq = json::parse(req.body);
+        json g = parsedReq["game"];
+        json b = parsedReq["board"];
+        json m = parsedReq["you"];
 
         RulesetSettings rulesetSettings = RulesetSettings();
-        Ruleset ruleset = Ruleset(game["ruleset"]["name"], game["ruleset"]["version"]);
-        Game GAME = Game(game["id"], ruleset, game["map"], game["timeout"], game["source"]);
-        Board BOARD = Board(board["height"], board["width"]);
-        std::cout << "Game ID in game class: " << GAME.getId() << std::endl;
-        std::cout << "Board height in board class: " << BOARD.getHeight() << std::endl;
-        std::cout << "Board width in board class: " << BOARD.getWidth() << std::endl;
+        Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
+        Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
+        Board board = Board(b["height"], b["width"]);
+        std::cout << "Game ID in game class: " << game.getId() << std::endl;
+        std::cout << "Board height in board class: " << board.getHeight() << std::endl;
+        std::cout << "Board width in board class: " << board.getWidth() << std::endl;
+
+        ScoredMoves scoredMoves;
+
+        Coord myHead;
+        myHead.x = m["head"]["x"];
+        myHead.y = m["head"]["y"];
+
+        Snake me;
+        me.setHead(myHead);
+
+        std::cout << "My head position x: " << me.getHead().x << std::endl;
+        std::cout << "My head position y: " << me.getHead().y << std::endl;
+        
 
         // AVOID WALLS //
         // get board size
+        // board.getHeight(), board.getWidth()
 
+        if (me.getHead().x + 1 >= board.getWidth()){
+            scoredMoves.right.setScore(-50);
+        };
+
+        if (me.getHead().x == 0){
+            scoredMoves.left.setScore(-50);
+        };
+
+        if (me.getHead().y + 1 >= board.getHeight()){
+            scoredMoves.up.setScore(-50);
+        };
+
+        if (me.getHead().y == 0){
+            scoredMoves.down.setScore(-50);
+        };
+
+
+        scoredMoves.printCurrentScoredMoves();
+
+        Move best = scoredMoves.returnHighestScoreMove();
 
         /*
         SAMPLE RESPONSE 
@@ -105,8 +147,11 @@ int main() {
             {"move": "up"}
         )");
 
+        json responseData;
+        responseData["move"] = best.getDirection();
+
         //  Convert json object to string.
-        std::string s = jResponse.dump();
+        std::string s = responseData.dump();
 
         std::cout << "Response json as string: " << s << std::endl;
 

@@ -6,6 +6,38 @@ struct Coord {
     unsigned int y;
 };
 
+class Move {
+    private:
+        std::string direction;
+        int score;
+    
+    public:
+        Move();
+        Move(std::string d);
+
+        std::string getDirection() const;
+        int getScore() const;
+
+        void setScore(int s);
+
+};
+
+class ScoredMoves {
+    public:
+        Move left;
+        Move up;
+        Move right;
+        Move down;
+    
+    public:
+        ScoredMoves();
+
+        void printCurrentScoredMoves() const;
+
+        Move returnHighestScoreMove() const;
+
+};
+
 class RulesetSettings {
     private:
         int foodSpawnChance;
@@ -99,6 +131,31 @@ class Snake {
         std::string shout;
         std::string squad;
         Customizations customizations;
+    
+    public:
+        Snake();
+        Snake(  std::string i, 
+                std::string n, 
+                int hlt, 
+                int l, 
+                Coord hd, 
+                int len);
+        
+        void setId(std::string i);
+        void setName(std::string n);
+        void setHealth(int h);
+        //void setBody();
+        //void setLatency();
+        void setHead(Coord h);
+        void setLength(int l);
+
+        std::string getId() const;
+        std::string getName() const;
+        int getHealth() const;
+        //
+        //
+        Coord getHead() const;
+        int getLength() const;
 };
 
 class Board {
