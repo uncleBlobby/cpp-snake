@@ -35,9 +35,9 @@ int main() {
         json jResponse = json::parse(R"(
             {"apiversion": "1",
             "author": "uncleBlobby",
-            "color": "#292929",
-            "head": "default",
-            "tail": "default",
+            "color": "#DFFF00",
+            "head": "shades",
+            "tail": "bolt",
             "version": "0.0.1-alpha"}
         )");
 
@@ -193,6 +193,18 @@ int main() {
         res.set_content(s, "application/json");
     });
 
+
+    svr.Post("/end", [](const httplib::Request& req, httplib::Response &res) {
+        json parsedReq = json::parse(req.body);
+        json g = parsedReq["game"];
+        json b = parsedReq["board"];
+        json m = parsedReq["you"];
+
+        std::cout << "Game ended.\n" << "Details:\n";
+
+        std::cout << "Game ID: "<< g["id"] << std::endl;
+        std::cout << "Data: " << parsedReq << std::endl;
+    });
     
 
     svr.listen("0.0.0.0", 8080);
