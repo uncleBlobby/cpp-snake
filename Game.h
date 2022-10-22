@@ -1,4 +1,10 @@
 #include <string>
+#include <vector>
+
+struct Coord {
+    unsigned int x;
+    unsigned int y;
+};
 
 class RulesetSettings {
     private:
@@ -73,4 +79,44 @@ class Game {
         void setMap(std::string m);
         void setTimeout(unsigned int t);
         void setSource(std::string s);
+};
+
+struct Customizations {
+    std::string color;
+    std::string head;
+    std::string tail;
+};
+
+class Snake {
+    private:
+        std::string id;
+        std::string name;
+        int health;
+        std::vector<Coord> body;
+        int latency;
+        Coord head;
+        unsigned int length;
+        std::string shout;
+        std::string squad;
+        Customizations customizations;
+};
+
+class Board {
+    private:
+        unsigned int height;
+        unsigned int width;
+
+        // vector<type> name;
+
+        std::vector<Coord> food;
+        std::vector<Coord> hazards;
+        std::vector<Snake> snakes;
+    
+    public:
+        Board();
+        Board(unsigned int h, unsigned int w);
+
+        unsigned int getWidth() const;
+        unsigned int getHeight() const;
+
 };

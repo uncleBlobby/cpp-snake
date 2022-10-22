@@ -42,3 +42,57 @@ Game::Game(std::string i, Ruleset r, std::string m, unsigned int t, std::string 
 std::string Game::getId() const {
     return id;
 }
+
+Ruleset Game::getRuleset() const {
+    return ruleset;
+}
+
+std::string Game::getMap() const {
+    return map;
+}
+
+unsigned int Game::getTimeout() const {
+    return timeout;
+}
+
+std::string Game::getSource() const {
+    return source;
+}
+
+void Game::setId(std::string i) {
+    id = i;
+}
+
+void Game::setRuleset(Ruleset r) {
+    ruleset = r;
+}
+
+void Game::setMap(std::string m) {
+    map = m;
+}
+
+void Game::setTimeout(unsigned int t) {
+    timeout = t;
+}
+
+void Game::setSource(std::string s) {
+    source = s;
+}
+
+Board::Board(){
+    height = 0;
+    width = 0;
+}
+
+Board::Board(unsigned int h, unsigned int w){
+    height = h;
+    width = w;
+}
+
+unsigned int Board::getHeight() const {
+    return height;
+}
+
+unsigned int Board::getWidth() const {
+    return width;
+}
