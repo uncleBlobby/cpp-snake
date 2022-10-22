@@ -16,11 +16,30 @@ int main() {
         //json ex1 = json::parse(R"({"pi": 3.141, "happy": true})");
         //res.set_content({"Hello", "JSON!"}, "application/json");
         //res.set_content("Hello, c++ webserver!", "application/json");
-        json j_string = "this is a string";
+
+        /*
+        SAMPLE RESPONSE 
+        {
+            "apiversion": "1",
+            "author": "MyUsername",
+            "color": "#888888",
+            "head": "default",
+            "tail": "default",
+            "version": "0.0.1-beta"
+        }
+        */
+        json jResponse = json::parse(R"(
+            {"apiversion": "1",
+            "author": "uncleBlobby",
+            "color": "#292929",
+            "head": "default",
+            "tail": "default",
+            "version": "0.0.1-alpha"}
+        )");
 
         auto j3 = json::parse(R"({"hello": "JSON", "thisWorks": "true"})");
 
-        std::string s = j3.dump();
+        std::string s = jResponse.dump();
 
         std::cout << "Response json as string: " << s << std::endl;
 
