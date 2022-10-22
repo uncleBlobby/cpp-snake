@@ -84,8 +84,10 @@ int main() {
         RulesetSettings rulesetSettings = RulesetSettings();
         Ruleset ruleset = Ruleset(game["ruleset"]["name"], game["ruleset"]["version"]);
         Game GAME = Game(game["id"], ruleset, game["map"], game["timeout"], game["source"]);
-
+        Board BOARD = Board(board["height"], board["width"]);
         std::cout << "Game ID in game class: " << GAME.getId() << std::endl;
+        std::cout << "Board height in board class: " << BOARD.getHeight() << std::endl;
+        std::cout << "Board width in board class: " << BOARD.getWidth() << std::endl;
 
         // AVOID WALLS //
         // get board size
