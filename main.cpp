@@ -2,6 +2,8 @@
 #include "json.hpp"
 #include <stdio.h>
 
+#include "Game.h"
+
 using json = nlohmann::json;
 
 httplib::Server svr;
@@ -13,9 +15,6 @@ int main() {
 
     svr.Get("/", [](const httplib::Request& req, httplib::Response &res) {
         printDetails(req);
-        //json ex1 = json::parse(R"({"pi": 3.141, "happy": true})");
-        //res.set_content({"Hello", "JSON!"}, "application/json");
-        //res.set_content("Hello, c++ webserver!", "application/json");
 
         /*
         SAMPLE RESPONSE 
@@ -28,6 +27,7 @@ int main() {
             "version": "0.0.1-beta"
         }
         */
+        //  Build out valid json response.
         json jResponse = json::parse(R"(
             {"apiversion": "1",
             "author": "uncleBlobby",
@@ -37,13 +37,12 @@ int main() {
             "version": "0.0.1-alpha"}
         )");
 
-        auto j3 = json::parse(R"({"hello": "JSON", "thisWorks": "true"})");
-
+        //  Convert json object to string.
         std::string s = jResponse.dump();
 
         std::cout << "Response json as string: " << s << std::endl;
 
-
+        // send string response to client
         res.set_content(s, "application/json");
     });
 
@@ -52,10 +51,50 @@ int main() {
         res.set_content("Hello World!", "text/plain");
     });
 
+    svr.Post("/start", [](const httplib::Request& req, httplib::Response &res){
+        printDetails(req);
+        json parsed = json::parse(req.body);
+        json game = parsed["game"];
+        json board = parsed["board"];
+        json me = parsed["you"];
+        std::cout << "JSON game variable: " << game << std::endl;
+        std::cout << std::endl;
+        std::cout << "JSON board variable: " << board << std::endl;
+        std::cout << std::endl;
+        std::cout << "JSON you variable: " << me << std::endl;
+        std::cout << std::endl;
+        std::cout << "Game ID: " << game["id"] << std::endl;
+        res.set_content("ok", "application/json");
+    });
+
     svr.Get("/move", [](const httplib::Request& req, httplib::Response &res) {
         printDetails(req);
         res.set_content("Hello, Battlesnake!", "text/plain");
     });
+
+    svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
+        /*
+        SAMPLE RESPONSE 
+        {
+            "move": "up",
+            "shout": "Moving up!" // optional
+        }
+        */
+        //  Build out valid json response.
+        json jResponse = json::parse(R"(
+            {"move": "up"}
+        )");
+
+        //  Convert json object to string.
+        std::string s = jResponse.dump();
+
+        std::cout << "Response json as string: " << s << std::endl;
+
+        // send string response to client
+        res.set_content(s, "application/json");
+    });
+
+    
 
     svr.listen("0.0.0.0", 8080);
 
