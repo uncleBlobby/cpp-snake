@@ -38,3 +38,7 @@ Game::Game(std::string i, Ruleset r, std::string m, unsigned int t, std::string 
     timeout = t;
     source = s;
 }
+
+std::string Game::getId() const {
+    return id;
+}

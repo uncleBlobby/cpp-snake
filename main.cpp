@@ -57,6 +57,7 @@ int main() {
         json game = parsed["game"];
         json board = parsed["board"];
         json me = parsed["you"];
+        /*
         std::cout << "JSON game variable: " << game << std::endl;
         std::cout << std::endl;
         std::cout << "JSON board variable: " << board << std::endl;
@@ -64,6 +65,7 @@ int main() {
         std::cout << "JSON you variable: " << me << std::endl;
         std::cout << std::endl;
         std::cout << "Game ID: " << game["id"] << std::endl;
+        */
         res.set_content("ok", "application/json");
     });
 
@@ -78,6 +80,17 @@ int main() {
         json game = parsed["game"];
         json board = parsed["board"];
         json me = parsed["you"];
+
+        RulesetSettings rulesetSettings = RulesetSettings();
+        Ruleset ruleset = Ruleset(game["ruleset"]["name"], game["ruleset"]["version"]);
+        Game GAME = Game(game["id"], ruleset, game["map"], game["timeout"], game["source"]);
+
+        std::cout << "Game ID in game class: " << GAME.getId() << std::endl;
+
+        // AVOID WALLS //
+        // get board size
+
+
         /*
         SAMPLE RESPONSE 
         {
