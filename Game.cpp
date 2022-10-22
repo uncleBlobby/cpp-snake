@@ -211,3 +211,14 @@ Coord Snake::getHead() const {
 int Snake::getLength() const {
     return length;
 }
+
+void Snake::printBody() const {
+    std::cout << "Printing body member of class:" << std::endl;
+    for (int i = 0; i < length; i++){
+        std::cout << "Body[" << i << "] X: " << body[i].x << ", Y: " << body[i].y << std::endl;
+    }
+}
+
+Coord Snake::getBodyCoord(int i) const {
+    return body[i];
+}

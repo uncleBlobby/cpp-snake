@@ -89,6 +89,12 @@ int main() {
         json b = parsedReq["board"];
         json m = parsedReq["you"];
 
+        std::cout << "Me object in request: " << m << std::endl;
+        std::cout << "My body: " << m["body"] << std::endl;
+        std::cout << "My length: " << m["length"] << std::endl;
+
+        
+
         RulesetSettings rulesetSettings = RulesetSettings();
         Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
@@ -105,9 +111,18 @@ int main() {
 
         Snake me;
         me.setHead(myHead);
+        me.setLength(m["length"]);
+
+        for (int i = 0; i < m["length"]; i++){
+            std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
+            me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
+        }
+        
 
         std::cout << "My head position x: " << me.getHead().x << std::endl;
         std::cout << "My head position y: " << me.getHead().y << std::endl;
+
+        me.printBody();
         
 
         // AVOID WALLS //
@@ -130,6 +145,25 @@ int main() {
             scoredMoves.down.setScore(-50);
         };
 
+        // AVOID NECK //
+        // need to implement body position array //
+
+        if (me.getHead().x + 1 == me.getBodyCoord(1).x){
+            scoredMoves.right.setScore(-100);
+        };
+
+        if (me.getHead().x - 1 == me.getBodyCoord(1).x){
+            scoredMoves.left.setScore(-100);
+        };
+
+        if (me.getHead().y + 1 == me.getBodyCoord(1).y){
+            scoredMoves.up.setScore(-100);
+        };
+
+        if (me.getHead().y - 1 == me.getBodyCoord(1).y){
+            scoredMoves.down.setScore(-100);
+        };
+
 
         scoredMoves.printCurrentScoredMoves();
 
@@ -143,10 +177,6 @@ int main() {
         }
         */
         //  Build out valid json response.
-        json jResponse = json::parse(R"(
-            {"move": "up"}
-        )");
-
         json responseData;
         responseData["move"] = best.getDirection();
 

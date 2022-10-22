@@ -124,7 +124,7 @@ class Snake {
         std::string id;
         std::string name;
         int health;
-        std::vector<Coord> body;
+        
         int latency;
         Coord head;
         unsigned int length;
@@ -133,6 +133,7 @@ class Snake {
         Customizations customizations;
     
     public:
+        std::vector<Coord> body;
         Snake();
         Snake(  std::string i, 
                 std::string n, 
@@ -156,6 +157,10 @@ class Snake {
         //
         Coord getHead() const;
         int getLength() const;
+
+        Coord getBodyCoord(int i) const;
+
+        void printBody() const;
 };
 
 class Board {
