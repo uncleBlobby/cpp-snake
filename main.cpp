@@ -128,6 +128,23 @@ int main() {
             //std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
             me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
         }
+
+        std::cout << "Board food: " << b["food"] << std::endl;
+
+        //  TODO: figure out this food stuff -- currently seems to print even when the food value is null
+
+        for(int i = 0; i < board.getHeight() * board.getWidth(); i++){
+            if ((b["food"][i]["x"] < board.getWidth()) && (b["food"][i]["y"] < board.getHeight())){
+                std::cout << "Food at [" << i << "]: " << b["food"][i] << std::endl;
+                std::cout << "Food: X:" << b["food"][i]["x"] << " Y:" << b["food"][i]["y"] << std::endl;
+                //board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
+
+                //std::cout << "Food inside board class: X:" << board.food[i].x << " Y:" << board.food[i].y << std::endl;
+            }
+            
+        }
+
+        //std::cout << "Food inside board class: " << board.food << std::endl;
         
 
         //std::cout << "My head position x: " << me.getHead().x << std::endl;
@@ -220,9 +237,9 @@ int main() {
 
         auto turn_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(turn_end - turn_start);
 
-        std::cout << "Time elapsed to move: " << turnTimeElapsed << std::endl;
+        //std::cout << "Time elapsed to move: " << turnTimeElapsed << std::endl;
         std::cout << "Time elapsed to move (chrono): " << turn_duration.count() << "ns" << std::endl;
-        std::cout << "Time elapsed to move (chrono): " << turn_duration.count() / 1000000000 << "s" << std::endl;
+        //std::cout << "Time elapsed to move (chrono): " << turn_duration.count() / 1000000000 << "s" << std::endl;
 
         // send string response to client
         res.set_content(s, "application/json");

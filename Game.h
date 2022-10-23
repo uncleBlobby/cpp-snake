@@ -169,11 +169,12 @@ class Board {
         unsigned int width;
 
         // vector<type> name;
+        public:
 
-        std::vector<Coord> food;
-        std::vector<Coord> hazards;
-        std::vector<Snake> snakes;
-    
+            std::vector<Coord> food;
+            std::vector<Coord> hazards;
+            std::vector<Snake> snakes;
+        
     public:
         Board();
         Board(unsigned int h, unsigned int w);
