@@ -90,6 +90,11 @@ int main() {
         res.set_content("Hello, Battlesnake!", "text/plain");
     });
 
+    svr.Get("/browserview", [](const httplib::Request& req, httplib::Response &res) {
+        printDetails(req);
+        res.set_content("Hello, Battlesnake!", "text/plain");
+    });
+
     svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
 
         time_t turnStart = time(NULL);
@@ -98,18 +103,55 @@ int main() {
         json parsedReq = json::parse(req.body);
         json g = parsedReq["game"];
         json b = parsedReq["board"];
+        json snakesJSON = b["snakes"];
         json m = parsedReq["you"];
-
-        //std::cout << "Me object in request: " << m << std::endl;
-        //std::cout << "My body: " << m["body"] << std::endl;
-        //std::cout << "My length: " << m["length"] << std::endl;
-
-        
 
         RulesetSettings rulesetSettings = RulesetSettings();
         Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
         Board board = Board(b["height"], b["width"]);
+
+        //std::cout << "Me object in request: " << m << std::endl;
+        //std::cout << "My body: " << m["body"] << std::endl;
+        //std::cout << "My length: " << m["length"] << std::endl;
+
+        std::cout << "Snakes in json: " << snakesJSON << std::endl;
+        std::cout << "Number of snakes in json: " << snakesJSON.size() << std::endl;
+
+        for (int i = 0; i < snakesJSON.size(); i++){
+            std::cout << "Snake[" << i << "] body: " << snakesJSON[i]["body"] << std::endl;
+
+            if (snakesJSON[i]["id"] == m["id"]){
+                std::cout << "Snake[" << i << "] is me!" << std::endl;
+            } else {
+                std::cout << "Snake[" << i << "] is NOT me!" << std::endl;
+            }
+            
+                std::cout << "Adding snake to board object." << std::endl;
+
+                Snake snake;
+                for (int j = 0; j < snakesJSON[i]["body"].size(); j++){
+                    std::cout << "Snake[" << i << "][\"body\"][" << j <<"] " << snakesJSON[i]["body"][j] << std::endl;
+                    snake.body.push_back((Coord){.x = snakesJSON[i]["body"][j]["x"], .y = snakesJSON[i]["body"][j]["y"]});
+                    
+                    
+                }
+                snake.setLength(snakesJSON[i]["body"].size());
+                snake.setHead((Coord){.x=snakesJSON[i]["body"][0]["x"], .y=snakesJSON[i]["body"][0]["y"]});
+                snake.setName(snakesJSON[i]["name"]);
+                snake.setId(snakesJSON[i]["id"]);
+                board.snakes.push_back(snake);
+                
+        }
+
+        for (int i = 0; i < board.snakes.size(); i++){
+            std::cout << "Snake in board object: " << board.snakes[i].getId() << std::endl;
+        }
+        
+
+        
+
+
         //std::cout << "Game ID in game class: " << game.getId() << std::endl;
         //std::cout << "Board height in board class: " << board.getHeight() << std::endl;
         //std::cout << "Board width in board class: " << board.getWidth() << std::endl;

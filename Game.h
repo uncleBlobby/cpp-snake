@@ -178,7 +178,7 @@ class Board {
 
             std::vector<Coord> food;
             std::vector<Coord> hazards;
-            std::vector<Snake> snakes;
+            std::vector<Snake> snakes; 
         
     public:
         Board();
