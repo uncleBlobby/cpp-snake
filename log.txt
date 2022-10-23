@@ -2079,3 +2079,3077 @@
     }
   }
 }
+{
+  "game": {
+    "id": "09769a8e-923d-4739-9e2c-f2a625373777",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 96,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "88ee4e82-d3d2-4df5-bf98-595ade54533b",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 98,
+        "body": [
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 5,
+            "y": 4
+          },
+          {
+            "x": 6,
+            "y": 4
+          },
+          {
+            "x": 6,
+            "y": 5
+          },
+          {
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "head": {
+          "x": 5,
+          "y": 5
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 10,
+        "y": 2
+      },
+      {
+        "x": 10,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "y": 9
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 9,
+        "y": 10
+      },
+      {
+        "x": 2,
+        "y": 7
+      },
+      {
+        "x": 10,
+        "y": 4
+      },
+      {
+        "x": 8,
+        "y": 3
+      },
+      {
+        "x": 8,
+        "y": 9
+      },
+      {
+        "x": 9,
+        "y": 4
+      },
+      {
+        "x": 9,
+        "y": 8
+      },
+      {
+        "x": 7,
+        "y": 7
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "e3954ba4-bbc0-4a6a-b0d2-b7ae4e735ee1",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 89,
+    "body": [
+      {
+        "x": 2,
+        "y": 4
+      },
+      {
+        "x": 1,
+        "y": 4
+      },
+      {
+        "x": 1,
+        "y": 5
+      },
+      {
+        "x": 1,
+        "y": 6
+      },
+      {
+        "x": 0,
+        "y": 6
+      },
+      {
+        "x": 0,
+        "y": 5
+      },
+      {
+        "x": 0,
+        "y": 4
+      },
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 1,
+        "y": 3
+      },
+      {
+        "x": 2,
+        "y": 3
+      },
+      {
+        "x": 2,
+        "y": 4
+      }
+    ],
+    "head": {
+      "x": 2,
+      "y": 4
+    },
+    "length": 11,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "2b12c188-c3c7-48bf-9fde-68861f036c4e",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 12,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "d7e5cb60-574b-4fd7-bbdb-1ba0d08a0ac8",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 100,
+        "body": [
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 5,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 3
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "head": {
+          "x": 5,
+          "y": 5
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#FF5733",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 0,
+        "y": 8
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "d7e5cb60-574b-4fd7-bbdb-1ba0d08a0ac8",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 100,
+    "body": [
+      {
+        "x": 5,
+        "y": 5
+      },
+      {
+        "x": 5,
+        "y": 4
+      },
+      {
+        "x": 4,
+        "y": 4
+      },
+      {
+        "x": 4,
+        "y": 3
+      },
+      {
+        "x": 4,
+        "y": 3
+      }
+    ],
+    "head": {
+      "x": 5,
+      "y": 5
+    },
+    "length": 5,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "c99a6b76-c434-4d91-b746-fcf8214145ca",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 134,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "65e52859-bf8d-411e-be82-18fe1baf424c",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 57,
+        "body": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 4,
+          "y": 6
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 9,
+        "y": 7
+      },
+      {
+        "x": 4,
+        "y": 8
+      },
+      {
+        "x": 3,
+        "y": 7
+      },
+      {
+        "x": 2,
+        "y": 5
+      },
+      {
+        "x": 9,
+        "y": 1
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "a71a2b68-3b64-4a32-bb9b-753cc7fe3044",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 96,
+    "body": [
+      {
+        "x": 1,
+        "y": 7
+      },
+      {
+        "x": 0,
+        "y": 7
+      },
+      {
+        "x": 0,
+        "y": 6
+      },
+      {
+        "x": 1,
+        "y": 6
+      },
+      {
+        "x": 1,
+        "y": 7
+      },
+      {
+        "x": 1,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "y": 9
+      },
+      {
+        "x": 1,
+        "y": 9
+      },
+      {
+        "x": 1,
+        "y": 10
+      },
+      {
+        "x": 2,
+        "y": 10
+      },
+      {
+        "x": 3,
+        "y": 10
+      },
+      {
+        "x": 4,
+        "y": 10
+      },
+      {
+        "x": 5,
+        "y": 10
+      },
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 7,
+        "y": 10
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 9,
+        "y": 10
+      },
+      {
+        "x": 9,
+        "y": 9
+      }
+    ],
+    "head": {
+      "x": 1,
+      "y": 7
+    },
+    "length": 19,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "1343023e-ca12-464f-a794-6d1fcba1864e",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 41,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "e49119a2-dbef-49c2-9325-bf8094e68ca4",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 96,
+        "body": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 1,
+            "y": 5
+          },
+          {
+            "x": 1,
+            "y": 4
+          },
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "head": {
+          "x": 4,
+          "y": 5
+        },
+        "length": 8,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#FF5733",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 4,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 7
+      },
+      {
+        "x": 9,
+        "y": 9
+      },
+      {
+        "x": 10,
+        "y": 5
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "e49119a2-dbef-49c2-9325-bf8094e68ca4",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 96,
+    "body": [
+      {
+        "x": 4,
+        "y": 5
+      },
+      {
+        "x": 3,
+        "y": 5
+      },
+      {
+        "x": 2,
+        "y": 5
+      },
+      {
+        "x": 1,
+        "y": 5
+      },
+      {
+        "x": 1,
+        "y": 4
+      },
+      {
+        "x": 2,
+        "y": 4
+      },
+      {
+        "x": 3,
+        "y": 4
+      },
+      {
+        "x": 4,
+        "y": 4
+      }
+    ],
+    "head": {
+      "x": 4,
+      "y": 5
+    },
+    "length": 8,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "b4074592-a4f4-40e4-bb47-3f06b6229490",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 48,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "6f5c473c-56c1-4006-b3a9-644c4ddd397e",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 56,
+        "body": [
+          {
+            "x": 2,
+            "y": 6
+          },
+          {
+            "x": 1,
+            "y": 6
+          },
+          {
+            "x": 0,
+            "y": 6
+          },
+          {
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 2,
+          "y": 6
+        },
+        "length": 4,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 0,
+        "y": 8
+      },
+      {
+        "x": 2,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 10
+      },
+      {
+        "x": 6,
+        "y": 9
+      },
+      {
+        "x": 10,
+        "y": 7
+      },
+      {
+        "x": 3,
+        "y": 6
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "2bfc90bb-e246-4283-b919-539ce8bf6b32",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 97,
+    "body": [
+      {
+        "x": 10,
+        "y": 2
+      },
+      {
+        "x": 9,
+        "y": 2
+      },
+      {
+        "x": 8,
+        "y": 2
+      },
+      {
+        "x": 8,
+        "y": 1
+      },
+      {
+        "x": 9,
+        "y": 1
+      },
+      {
+        "x": 10,
+        "y": 1
+      },
+      {
+        "x": 10,
+        "y": 2
+      },
+      {
+        "x": 10,
+        "y": 3
+      },
+      {
+        "x": 9,
+        "y": 3
+      }
+    ],
+    "head": {
+      "x": 10,
+      "y": 2
+    },
+    "length": 9,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "cb24a790-fb92-4c29-a863-816381e7d208",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 127,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "e29cca5d-2b43-4ef5-a93f-70ce3695023d",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 67,
+        "body": [
+          {
+            "x": 0,
+            "y": 5
+          },
+          {
+            "x": 1,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 0,
+          "y": 5
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 8,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "y": 2
+      },
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": 7
+      },
+      {
+        "x": 10,
+        "y": 7
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "e14298ef-4142-42e8-b3e7-de830e522755",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 95,
+    "body": [
+      {
+        "x": 7,
+        "y": 8
+      },
+      {
+        "x": 6,
+        "y": 8
+      },
+      {
+        "x": 7,
+        "y": 8
+      },
+      {
+        "x": 7,
+        "y": 9
+      },
+      {
+        "x": 6,
+        "y": 9
+      },
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 5,
+        "y": 10
+      },
+      {
+        "x": 4,
+        "y": 10
+      },
+      {
+        "x": 4,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 8
+      },
+      {
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "head": {
+      "x": 7,
+      "y": 8
+    },
+    "length": 12,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "1f361b65-e2e2-4e53-92c9-21313a5f217d",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 107,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "7ab0af67-45c8-492b-beef-2ed75a104cf0",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 82,
+        "body": [
+          {
+            "x": 3,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 6
+          },
+          {
+            "x": 6,
+            "y": 6
+          },
+          {
+            "x": 6,
+            "y": 5
+          },
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 3,
+          "y": 6
+        },
+        "length": 6,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 6,
+        "y": 9
+      },
+      {
+        "x": 10,
+        "y": 9
+      },
+      {
+        "x": 8,
+        "y": 9
+      },
+      {
+        "x": 0,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "y": 1
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "ecc0a967-096a-4766-8390-dac2c9736d1a",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 92,
+    "body": [
+      {
+        "x": 11,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "y": 1
+      },
+      {
+        "x": 10,
+        "y": 2
+      },
+      {
+        "x": 10,
+        "y": 3
+      },
+      {
+        "x": 9,
+        "y": 3
+      },
+      {
+        "x": 9,
+        "y": 2
+      },
+      {
+        "x": 9,
+        "y": 1
+      },
+      {
+        "x": 9,
+        "y": 0
+      }
+    ],
+    "head": {
+      "x": 11,
+      "y": 0
+    },
+    "length": 9,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "9d366a84-c75f-4d0b-8dd9-69e0116616c1",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 104,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "a551ee2e-e839-468c-9fcf-94f9975da3c3",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 80,
+        "body": [
+          {
+            "x": 0,
+            "y": 6
+          },
+          {
+            "x": 0,
+            "y": 5
+          },
+          {
+            "x": 1,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 0,
+          "y": 6
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 5,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 6,
+        "y": 9
+      },
+      {
+        "x": 6,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "y": 2
+      },
+      {
+        "x": 8,
+        "y": 7
+      },
+      {
+        "x": 8,
+        "y": 4
+      },
+      {
+        "x": 10,
+        "y": 1
+      },
+      {
+        "x": 9,
+        "y": 3
+      },
+      {
+        "x": 6,
+        "y": 8
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "00d2b2b6-85ab-462a-a860-71dacdf8271d",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 93,
+    "body": [
+      {
+        "x": 2,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 3
+      },
+      {
+        "x": 2,
+        "y": 3
+      },
+      {
+        "x": 3,
+        "y": 3
+      },
+      {
+        "x": 4,
+        "y": 3
+      },
+      {
+        "x": 4,
+        "y": 2
+      },
+      {
+        "x": 3,
+        "y": 2
+      },
+      {
+        "x": 2,
+        "y": 2
+      },
+      {
+        "x": 2,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "y": 1
+      }
+    ],
+    "head": {
+      "x": 2,
+      "y": 2
+    },
+    "length": 14,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "08788971-67df-4635-b13f-cfe6352ecba1",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 86,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "74d6fe99-4557-4ea9-8392-7de9a93c1bc4",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 100,
+        "body": [
+          {
+            "x": 9,
+            "y": 5
+          },
+          {
+            "x": 9,
+            "y": 6
+          },
+          {
+            "x": 8,
+            "y": 6
+          },
+          {
+            "x": 7,
+            "y": 6
+          },
+          {
+            "x": 7,
+            "y": 6
+          }
+        ],
+        "head": {
+          "x": 9,
+          "y": 5
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 9,
+        "y": 10
+      },
+      {
+        "x": 9,
+        "y": 0
+      },
+      {
+        "x": 7,
+        "y": 2
+      },
+      {
+        "x": 8,
+        "y": 9
+      },
+      {
+        "x": 2,
+        "y": 3
+      },
+      {
+        "x": 7,
+        "y": 5
+      },
+      {
+        "x": 8,
+        "y": 2
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "2a606384-7b5e-43d3-9858-05e34a933771",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 88,
+    "body": [
+      {
+        "x": 3,
+        "y": 9
+      },
+      {
+        "x": 2,
+        "y": 9
+      },
+      {
+        "x": 3,
+        "y": 9
+      },
+      {
+        "x": 4,
+        "y": 9
+      },
+      {
+        "x": 4,
+        "y": 8
+      },
+      {
+        "x": 3,
+        "y": 8
+      },
+      {
+        "x": 2,
+        "y": 8
+      },
+      {
+        "x": 1,
+        "y": 8
+      },
+      {
+        "x": 1,
+        "y": 9
+      },
+      {
+        "x": 1,
+        "y": 10
+      }
+    ],
+    "head": {
+      "x": 3,
+      "y": 9
+    },
+    "length": 10,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "9b6b9974-2335-4163-8955-ca8a3f1e569e",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 319,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "2cc2f188-120d-4e73-a629-9c1d0484e8ed",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 86,
+        "body": [
+          {
+            "x": 3,
+            "y": 6
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 3
+          },
+          {
+            "x": 3,
+            "y": 3
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 2
+          },
+          {
+            "x": 5,
+            "y": 2
+          },
+          {
+            "x": 5,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 1
+          },
+          {
+            "x": 7,
+            "y": 1
+          },
+          {
+            "x": 8,
+            "y": 1
+          },
+          {
+            "x": 8,
+            "y": 2
+          },
+          {
+            "x": 9,
+            "y": 2
+          },
+          {
+            "x": 9,
+            "y": 3
+          },
+          {
+            "x": 9,
+            "y": 4
+          },
+          {
+            "x": 9,
+            "y": 5
+          },
+          {
+            "x": 9,
+            "y": 6
+          },
+          {
+            "x": 9,
+            "y": 7
+          },
+          {
+            "x": 9,
+            "y": 8
+          },
+          {
+            "x": 8,
+            "y": 8
+          },
+          {
+            "x": 8,
+            "y": 7
+          },
+          {
+            "x": 8,
+            "y": 6
+          },
+          {
+            "x": 8,
+            "y": 5
+          },
+          {
+            "x": 8,
+            "y": 4
+          }
+        ],
+        "head": {
+          "x": 3,
+          "y": 6
+        },
+        "length": 28,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 8,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 7,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 5,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 1
+      },
+      {
+        "x": 7,
+        "y": 2
+      },
+      {
+        "x": 4,
+        "y": 8
+      },
+      {
+        "x": 9,
+        "y": 10
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "597b048c-9dfe-4889-9970-c63deb48aeff",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 87,
+    "body": [
+      {
+        "x": 2,
+        "y": 7
+      },
+      {
+        "x": 3,
+        "y": 7
+      },
+      {
+        "x": 3,
+        "y": 8
+      },
+      {
+        "x": 4,
+        "y": 8
+      }
+    ],
+    "head": {
+      "x": 2,
+      "y": 7
+    },
+    "length": 4,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "2001b0d6-33ab-4f25-b84f-45809118f4ad",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 148,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "dce5950d-8138-4819-98e3-c500b56ba693",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 94,
+        "body": [
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 3
+          },
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 2
+          },
+          {
+            "x": 5,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 3
+          },
+          {
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "head": {
+          "x": 3,
+          "y": 5
+        },
+        "length": 9,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 1,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 7
+      },
+      {
+        "x": 10,
+        "y": 9
+      },
+      {
+        "x": 0,
+        "y": 8
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "d6bfc360-5661-4d86-9bbd-24b7c1262319",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 93,
+    "body": [
+      {
+        "x": 5,
+        "y": 9
+      },
+      {
+        "x": 4,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 8
+      },
+      {
+        "x": 4,
+        "y": 8
+      },
+      {
+        "x": 3,
+        "y": 8
+      },
+      {
+        "x": 2,
+        "y": 8
+      },
+      {
+        "x": 2,
+        "y": 9
+      },
+      {
+        "x": 3,
+        "y": 9
+      },
+      {
+        "x": 3,
+        "y": 10
+      },
+      {
+        "x": 4,
+        "y": 10
+      },
+      {
+        "x": 5,
+        "y": 10
+      },
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 7,
+        "y": 10
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 8,
+        "y": 9
+      },
+      {
+        "x": 7,
+        "y": 9
+      },
+      {
+        "x": 6,
+        "y": 9
+      }
+    ],
+    "head": {
+      "x": 5,
+      "y": 9
+    },
+    "length": 18,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "d0bb73bc-f2f4-472a-8b25-95b9fa5da7cc",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 41,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "2a226174-e86f-49ee-af58-946b84c8e3df",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 98,
+        "body": [
+          {
+            "x": 6,
+            "y": 7
+          },
+          {
+            "x": 7,
+            "y": 7
+          },
+          {
+            "x": 7,
+            "y": 6
+          },
+          {
+            "x": 6,
+            "y": 6
+          },
+          {
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 6,
+          "y": 7
+        },
+        "length": 5,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "y": 9
+      },
+      {
+        "x": 2,
+        "y": 6
+      },
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 10,
+        "y": 1
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "dce66dbe-1680-4a76-a951-fad77aeb7da6",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 93,
+    "body": [
+      {
+        "x": 8,
+        "y": 5
+      },
+      {
+        "x": 7,
+        "y": 5
+      },
+      {
+        "x": 8,
+        "y": 5
+      },
+      {
+        "x": 8,
+        "y": 4
+      },
+      {
+        "x": 7,
+        "y": 4
+      },
+      {
+        "x": 7,
+        "y": 3
+      },
+      {
+        "x": 6,
+        "y": 3
+      }
+    ],
+    "head": {
+      "x": 8,
+      "y": 5
+    },
+    "length": 7,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "0492a5f8-a0d8-471f-b3cd-4166fc0ab20a",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 152,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "4d929e3c-bf85-4e74-95e7-6d80b5524959",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 94,
+        "body": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 5,
+            "y": 4
+          },
+          {
+            "x": 6,
+            "y": 4
+          },
+          {
+            "x": 6,
+            "y": 3
+          },
+          {
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "head": {
+          "x": 4,
+          "y": 6
+        },
+        "length": 7,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "y": 1
+      },
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "y": 10
+      },
+      {
+        "x": 3,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "y": 3
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 10,
+        "y": 4
+      },
+      {
+        "x": 9,
+        "y": 2
+      },
+      {
+        "x": 5,
+        "y": 9
+      },
+      {
+        "x": 5,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "y": 4
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "a38ac69c-e64c-4bba-beeb-53a470c52aed",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 96,
+    "body": [
+      {
+        "x": 11,
+        "y": 7
+      },
+      {
+        "x": 10,
+        "y": 7
+      },
+      {
+        "x": 10,
+        "y": 8
+      },
+      {
+        "x": 10,
+        "y": 9
+      },
+      {
+        "x": 9,
+        "y": 9
+      },
+      {
+        "x": 9,
+        "y": 8
+      },
+      {
+        "x": 9,
+        "y": 7
+      },
+      {
+        "x": 9,
+        "y": 6
+      },
+      {
+        "x": 10,
+        "y": 6
+      }
+    ],
+    "head": {
+      "x": 11,
+      "y": 7
+    },
+    "length": 9,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "c2c7f65a-563c-420d-968f-a8f837b5c0c4",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 60,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "18650e40-2b52-42c3-9186-ee927508ce0b",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 40,
+        "body": [
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 5,
+          "y": 5
+        },
+        "length": 3,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 3,
+        "y": 1
+      },
+      {
+        "x": 9,
+        "y": 1
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "52e02f54-20be-433b-abff-59a7e59c038a",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 98,
+    "body": [
+      {
+        "x": 7,
+        "y": 9
+      },
+      {
+        "x": 6,
+        "y": 9
+      },
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 7,
+        "y": 10
+      },
+      {
+        "x": 7,
+        "y": 9
+      },
+      {
+        "x": 7,
+        "y": 8
+      },
+      {
+        "x": 6,
+        "y": 8
+      },
+      {
+        "x": 5,
+        "y": 8
+      }
+    ],
+    "head": {
+      "x": 7,
+      "y": 9
+    },
+    "length": 8,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "654e9e32-afd8-4241-86f0-1c34cb8ac559",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 146,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "4fd0bb50-1977-47ac-8823-dffb4dce082d",
+        "name": "cpp-snake",
+        "latency": "0",
+        "health": 68,
+        "body": [
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 2,
+          "y": 4
+        },
+        "length": 6,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#DFFF00",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 1,
+        "y": 9
+      },
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 1,
+        "y": 3
+      },
+      {
+        "x": 5,
+        "y": 0
+      },
+      {
+        "x": 0,
+        "y": 8
+      },
+      {
+        "x": 4,
+        "y": 0
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "8b9cba0b-06bd-4fd9-936f-c58b066f8b9a",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 100,
+    "body": [
+      {
+        "x": 6,
+        "y": 3
+      },
+      {
+        "x": 7,
+        "y": 3
+      },
+      {
+        "x": 8,
+        "y": 3
+      },
+      {
+        "x": 8,
+        "y": 2
+      },
+      {
+        "x": 8,
+        "y": 2
+      }
+    ],
+    "head": {
+      "x": 6,
+      "y": 3
+    },
+    "length": 5,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "8aa42a5c-249d-4514-9e0f-d198e0bdbb9b",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 230,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "c2c39ce9-d985-4a1b-87aa-7e6f7d86b5e8",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 91,
+        "body": [
+          {
+            "x": 6,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 3
+          },
+          {
+            "x": 6,
+            "y": 4
+          },
+          {
+            "x": 7,
+            "y": 4
+          },
+          {
+            "x": 7,
+            "y": 3
+          },
+          {
+            "x": 7,
+            "y": 2
+          },
+          {
+            "x": 7,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 1
+          },
+          {
+            "x": 5,
+            "y": 1
+          },
+          {
+            "x": 4,
+            "y": 1
+          },
+          {
+            "x": 3,
+            "y": 1
+          },
+          {
+            "x": 2,
+            "y": 1
+          },
+          {
+            "x": 2,
+            "y": 2
+          },
+          {
+            "x": 2,
+            "y": 3
+          },
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 3
+          }
+        ],
+        "head": {
+          "x": 6,
+          "y": 2
+        },
+        "length": 19,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 6,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 10,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "y": 9
+      },
+      {
+        "x": 9,
+        "y": 10
+      },
+      {
+        "x": 9,
+        "y": 9
+      },
+      {
+        "x": 10,
+        "y": 9
+      },
+      {
+        "x": 8,
+        "y": 8
+      },
+      {
+        "x": 8,
+        "y": 4
+      },
+      {
+        "x": 9,
+        "y": 5
+      },
+      {
+        "x": 10,
+        "y": 1
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "2597f678-a7d6-4d5b-afe2-f7f336e64de5",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 73,
+    "body": [
+      {
+        "x": 6,
+        "y": 5
+      },
+      {
+        "x": 6,
+        "y": 6
+      },
+      {
+        "x": 7,
+        "y": 6
+      },
+      {
+        "x": 8,
+        "y": 6
+      }
+    ],
+    "head": {
+      "x": 6,
+      "y": 5
+    },
+    "length": 4,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "c92493e5-204a-4c0f-b38a-0e3d7c07db7a",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 212,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "04258e58-ee45-467f-92e1-05c498762d22",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 77,
+        "body": [
+          {
+            "x": 8,
+            "y": 6
+          },
+          {
+            "x": 8,
+            "y": 7
+          },
+          {
+            "x": 7,
+            "y": 7
+          },
+          {
+            "x": 7,
+            "y": 6
+          },
+          {
+            "x": 7,
+            "y": 5
+          },
+          {
+            "x": 6,
+            "y": 5
+          },
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "head": {
+          "x": 8,
+          "y": 6
+        },
+        "length": 11,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#8a2be2",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 10,
+        "y": 8
+      },
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 8,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 9,
+        "y": 8
+      },
+      {
+        "x": 5,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 10,
+        "y": 3
+      },
+      {
+        "x": 10,
+        "y": 7
+      },
+      {
+        "x": 9,
+        "y": 1
+      },
+      {
+        "x": 10,
+        "y": 0
+      },
+      {
+        "x": 5,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "y": 10
+      },
+      {
+        "x": 0,
+        "y": 7
+      },
+      {
+        "x": 9,
+        "y": 5
+      },
+      {
+        "x": 3,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 2,
+        "y": 9
+      },
+      {
+        "x": 10,
+        "y": 4
+      },
+      {
+        "x": 1,
+        "y": 9
+      },
+      {
+        "x": 9,
+        "y": 9
+      },
+      {
+        "x": 3,
+        "y": 3
+      },
+      {
+        "x": 5,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "y": 3
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "67231400-2c61-4b93-856a-e6145d6043a5",
+    "name": "dumberSnake",
+    "latency": "0",
+    "health": 81,
+    "body": [
+      {
+        "x": 4,
+        "y": 3
+      },
+      {
+        "x": 4,
+        "y": 2
+      },
+      {
+        "x": 5,
+        "y": 2
+      }
+    ],
+    "head": {
+      "x": 4,
+      "y": 3
+    },
+    "length": 3,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}

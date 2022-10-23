@@ -197,3 +197,7 @@ Coord getClosestFoodCoord(std::vector<Coord> allFood, Coord start);
 int getDirectionToClosestFood(std::vector<Coord> allFood, Coord start);
 
 int getDirectionToMyTail(Coord tailPos, Coord head);
+
+Coord getClosestEnemyTailCoord(std::vector<Snake> allSnakes, Coord start);
+
+int getDirectionToClosestTail(Coord tailPos, Coord head);

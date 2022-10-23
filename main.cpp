@@ -232,16 +232,16 @@ int main() {
 
         for (int i = 1; i < me.getLength(); i++){
             if ((me.getHead().x + 1 == me.getBodyCoord(i).x) && (me.getHead().y == me.getBodyCoord(i).y)){
-                scoredMoves.right.setScore(-100);
+                scoredMoves.right.setScore(-150);
             }
             if ((me.getHead().x - 1 == me.getBodyCoord(i).x) && (me.getHead().y == me.getBodyCoord(i).y)){
-                scoredMoves.left.setScore(-100);
+                scoredMoves.left.setScore(-150);
             }
             if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y + 1 == me.getBodyCoord(i).y)){
-                scoredMoves.up.setScore(-100);
+                scoredMoves.up.setScore(-150);
             }
             if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y - 1 == me.getBodyCoord(i).y)){
-                scoredMoves.down.setScore(-100);
+                scoredMoves.down.setScore(-150);
             }
         }
 
@@ -267,7 +267,7 @@ int main() {
         }
 
         // PREFER TO MOVE TOWARD OWN TAIL IF NOT HUNGRY //
-        if (me.getHealth() >= 50){
+        if (me.getHealth() >= 25){
             //std::cout << "My tail position: "
             switch (getDirectionToMyTail(me.body[me.body.size()-1], me.getHead())){
                 case -1:
@@ -307,11 +307,105 @@ int main() {
 
         // AVOID ENEMY SNAKE BODIES //
 
-        
+        for (int i = 0; i < board.snakes.size(); i++){
+            for (int j = 0; j < board.snakes[i].body.size(); j++){
+                if (me.getId() != board.snakes[i].getId()){
+
+                
+                if (me.getHead().x + 1 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.right.setScore(-50);
+                }
+                if (me.getHead().x + 2 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.right.setScore(-25);
+                }
+                if (me.getHead().x - 1 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.left.setScore(-50);
+                }
+                if (me.getHead().x - 2 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.left.setScore(-25);
+                }
+                if (me.getHead().y + 1 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.up.setScore(-50);
+                }
+                if (me.getHead().y + 2 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.up.setScore(-25);
+                }
+                if (me.getHead().y - 1 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.down.setScore(-50);
+                }
+                if (me.getHead().y - 2 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.down.setScore(-50);
+                }
+                }
+            }
+        }
+
+        // AVOID ENEMY SNAKE HEADS //
+
+        // TODO: Better idea here might be to find the nearest enemy head and add points to the directions that turn away from it..
+
+        for (int i = 0; i < board.snakes.size(); i++){
+            if (me.getId() != board.snakes[i].getId() && me.getLength() <= board.snakes[i].body.size()){
+                
+                if (me.getHead().x + 1 == board.snakes[i].getHead().x - 1 && me.getHead().y == board.snakes[i].getHead().y){
+                    scoredMoves.right.setScore(-100);
+                }
+                if (me.getHead().x + 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y - 1){
+                    scoredMoves.right.setScore(-100);
+                    scoredMoves.up.setScore(-100);
+                }
+                if (me.getHead().x + 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y + 1){
+                    scoredMoves.right.setScore(-100);
+                    scoredMoves.down.setScore(-100);
+                }
+                
+                if (me.getHead().x - 1 == board.snakes[i].getHead().x + 1 && me.getHead().y == board.snakes[i].getHead().y){
+                    scoredMoves.left.setScore(-100);
+                }
+                if (me.getHead().x - 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y - 1){
+                    scoredMoves.left.setScore(-100);
+                    scoredMoves.up.setScore(-100);
+                }
+                if (me.getHead().x - 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y + 1){
+                    scoredMoves.left.setScore(-100);
+                    scoredMoves.down.setScore(-100);
+                }
+                
+                if (me.getHead().x == board.snakes[i].getHead().x && me.getHead().y + 1 == board.snakes[i].getHead().y - 1){
+                    scoredMoves.up.setScore(-100);
+                }
+                if (me.getHead().x == board.snakes[i].getHead().x && me.getHead().y - 1 == board.snakes[i].getHead().y + 1){
+                    scoredMoves.down.setScore(-100);
+                }
+            }
+            
+        }
+
+        //  PREFER MOVE TOWARD ENEMY SNAKE TAILS //
+        //  if we have a good amt of health
+        //  find nearest enemy snake tail
+        if(me.getHealth() >= 50){
+            switch (getDirectionToClosestTail(getClosestEnemyTailCoord(board.snakes, me.getHead()), me.getHead())){
+                case -1:
+                    break;
+                case 0:
+                    scoredMoves.left.setScore(+15);
+                    break;
+                case 1:
+                    scoredMoves.right.setScore(+15);
+                    break;
+                case 2:
+                    scoredMoves.down.setScore(+15);
+                    break;
+                case 3:
+                    scoredMoves.up.setScore(+15);
+                    break;
+            }
+        }
         
 
 
-        //scoredMoves.printCurrentScoredMoves();
+        scoredMoves.printCurrentScoredMoves();
 
         Move best = scoredMoves.returnHighestScoreMove();
 
