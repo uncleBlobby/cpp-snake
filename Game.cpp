@@ -270,3 +270,24 @@ int getDirectionToClosestFood(std::vector<Coord> allFood, Coord start){
 
     return -1;
 }
+
+int getDirectionToMyTail(Coord tailPos, Coord head){
+    if (tailPos.x < head.x){
+        return 0;
+        //return "left";
+    }
+    if (tailPos.x > head.x){
+        return 1;
+        //return "right";
+    }
+    if (tailPos.y < head.y){
+        return 2;
+        //return "down";
+    }
+    if (tailPos.y > head.y){
+        return 3;
+        //return "up";
+    }
+
+    return -1;
+}

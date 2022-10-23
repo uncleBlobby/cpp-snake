@@ -123,6 +123,7 @@ int main() {
         Snake me;
         me.setHead(myHead);
         me.setLength(m["length"]);
+        me.setHealth(m["health"]);
 
         for (int i = 0; i < m["length"]; i++){
             //std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
@@ -210,23 +211,64 @@ int main() {
         }
 
         // PREFER TO MOVE TOWARD FOOD WHEN HUNGRY //
-
-        switch (getDirectionToClosestFood(board.food, me.getHead())){
-            case -1:
-                break;
-            case 0:
-                scoredMoves.left.setScore(+100 - me.getHealth());
-                break;
-            case 1:
-                scoredMoves.right.setScore(+100 - me.getHealth());
-                break;
-            case 2:
-                scoredMoves.down.setScore(+100 - me.getHealth());
-                break;
-            case 3:
-                scoredMoves.up.setScore(+100 - me.getHealth());
-                break;
+        if (me.getHealth() < 50){
+            std::cout << "My health: " << me.getHealth() << std::endl;
+            switch (getDirectionToClosestFood(board.food, me.getHead())){
+                case -1:
+                    break;
+                case 0:
+                    scoredMoves.left.setScore(+100 - me.getHealth());
+                    break;
+                case 1:
+                    scoredMoves.right.setScore(+100 - me.getHealth());
+                    break;
+                case 2:
+                    scoredMoves.down.setScore(+100 - me.getHealth());
+                    break;
+                case 3:
+                    scoredMoves.up.setScore(+100 - me.getHealth());
+                    break;
+            }
         }
+
+        // PREFER TO MOVE TOWARD OWN TAIL IF NOT HUNGRY //
+        if (me.getHealth() >= 50){
+            //std::cout << "My tail position: "
+            switch (getDirectionToMyTail(me.body[me.body.size()-1], me.getHead())){
+                case -1:
+                    break;
+                case 0:
+                    scoredMoves.left.setScore(+25);
+                    break;
+                case 1:
+                    scoredMoves.right.setScore(+25);
+                    break;
+                case 2:
+                    scoredMoves.down.setScore(+25);
+                    break;
+                case 3:
+                    scoredMoves.up.setScore(+25);
+                    break;
+            }
+        }
+
+        // PREFER TO MOVE TOWARD MORE OPEN SPACES //
+
+        // check how far you are from the walls and add weight toward center.
+
+        if (me.getHead().x > (board.getWidth()/2)){
+            scoredMoves.left.setScore(+me.getHead().x);
+        }
+        if (me.getHead().x < (board.getWidth()/2)){
+            scoredMoves.right.setScore(+board.getWidth() - me.getHead().x);
+        }
+        if (me.getHead().y > (board.getHeight()/2)){
+            scoredMoves.down.setScore(+me.getHead().y);
+        }
+        if (me.getHead().y < (board.getHeight()/2)){
+            scoredMoves.up.setScore(+board.getHeight() - me.getHead().y);
+        }
+        
 
 
         //scoredMoves.printCurrentScoredMoves();
