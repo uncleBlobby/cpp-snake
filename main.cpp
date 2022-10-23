@@ -211,7 +211,7 @@ int main() {
         }
 
         // PREFER TO MOVE TOWARD FOOD WHEN HUNGRY //
-        if (me.getHealth() < 50){
+        if (me.getHealth() < 25){
             std::cout << "My health: " << me.getHealth() << std::endl;
             switch (getDirectionToClosestFood(board.food, me.getHead())){
                 case -1:
