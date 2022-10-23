@@ -112,11 +112,7 @@ int main() {
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
         Board board = Board(b["height"], b["width"]);
 
-        //  SETUP NODEBOARD
 
-        NodeBoard nodeBoard(board);
-
-        //nodeBoard.printNodeBoard();
 
         //  SETUP MY HEAD
 
@@ -180,26 +176,6 @@ int main() {
         for (int i = 0; i < b["food"].size(); i++){
             board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
         }
-
-        for (int i = 0; i < board.food.size(); i++){
-            for (int j = 0; j < nodeBoard.nodes.size(); j++){
-                if (nodeBoard.nodes[j].x == board.food[i].x && nodeBoard.nodes[j].y == board.food[i].y){
-                    nodeBoard.nodes[j].status = FOOD;
-                }
-            }
-        }
-
-        for (int i = 0; i < board.snakes.size(); i++){
-            for (int j = 0; j < board.snakes[i].body.size(); j++){
-                for (int k = 0; k < nodeBoard.nodes.size(); k++){
-                    if (nodeBoard.nodes[k].x == board.snakes[i].body[j].x && nodeBoard.nodes[k].y == board.snakes[i].body[j].y){
-                        nodeBoard.nodes[k].status = SNAKE;
-                    }
-                }
-            }
-        }
-
-        nodeBoard.printNodeBoard();
 
         /*
         std::cout << "Closest food at x: " << getClosestFoodCoord(board.food, me.getHead()).x << " y: " << getClosestFoodCoord(board.food, me.getHead()).y << std::endl;
