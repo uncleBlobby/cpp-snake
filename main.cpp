@@ -129,10 +129,16 @@ int main() {
             me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
         }
 
-        std::cout << "Board food: " << b["food"] << std::endl;
+        //std::cout << "Board food: " << b["food"] << std::endl;
+        std::cout << "Board food length: " << b["food"].size() << std::endl;
+
+        for (int i = 0; i < b["food"].size(); i++){
+            board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
+            std::cout << "Board food[" << i << "] X: " << board.food[i].x << " Y: " << board.food[i].y << std::endl; 
+        }
 
         //  TODO: figure out this food stuff -- currently seems to print even when the food value is null
-
+        /*
         for(int i = 0; i < board.getHeight() * board.getWidth(); i++){
             if ((b["food"][i]["x"] < board.getWidth()) && (b["food"][i]["y"] < board.getHeight())){
                 std::cout << "Food at [" << i << "]: " << b["food"][i] << std::endl;
@@ -143,6 +149,7 @@ int main() {
             }
             
         }
+        */
 
         //std::cout << "Food inside board class: " << board.food << std::endl;
         
