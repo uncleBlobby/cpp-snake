@@ -1,3 +1,8 @@
+#ifndef game_h
+#define game_h
+
+#pragma once
+
 #include <string>
 #include <vector>
 
@@ -201,3 +206,5 @@ int getDirectionToMyTail(Coord tailPos, Coord head);
 Coord getClosestEnemyTailCoord(std::vector<Snake> allSnakes, Coord start);
 
 int getDirectionToClosestTail(Coord tailPos, Coord head);
+
+#endif
