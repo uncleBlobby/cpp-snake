@@ -90,6 +90,11 @@ int main() {
         res.set_content("Hello, Battlesnake!", "text/plain");
     });
 
+    svr.Get("/browserview", [](const httplib::Request& req, httplib::Response &res) {
+        printDetails(req);
+        res.set_content("Hello, Battlesnake!", "text/plain");
+    });
+
     svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
 
         time_t turnStart = time(NULL);
@@ -98,65 +103,95 @@ int main() {
         json parsedReq = json::parse(req.body);
         json g = parsedReq["game"];
         json b = parsedReq["board"];
+        json snakesJSON = b["snakes"];
         json m = parsedReq["you"];
-
-        //std::cout << "Me object in request: " << m << std::endl;
-        //std::cout << "My body: " << m["body"] << std::endl;
-        //std::cout << "My length: " << m["length"] << std::endl;
-
-        
 
         RulesetSettings rulesetSettings = RulesetSettings();
         Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
         Board board = Board(b["height"], b["width"]);
-        //std::cout << "Game ID in game class: " << game.getId() << std::endl;
-        //std::cout << "Board height in board class: " << board.getHeight() << std::endl;
-        //std::cout << "Board width in board class: " << board.getWidth() << std::endl;
 
-        ScoredMoves scoredMoves;
+        //  SETUP MY HEAD
 
         Coord myHead;
         myHead.x = m["head"]["x"];
         myHead.y = m["head"]["y"];
+
+        // SETUP MY SNAKE
 
         Snake me;
         me.setHead(myHead);
         me.setLength(m["length"]);
         me.setHealth(m["health"]);
 
+        // SETUP MY BODY
+        
         for (int i = 0; i < m["length"]; i++){
             //std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
             me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
         }
 
-        //std::cout << "Board food: " << b["food"] << std::endl;
-        std::cout << "Board food length: " << b["food"].size() << std::endl;
+        //std::cout << "Me object in request: " << m << std::endl;
+        //std::cout << "My body: " << m["body"] << std::endl;
+        //std::cout << "My length: " << m["length"] << std::endl;
+
+        //std::cout << "Snakes in json: " << snakesJSON << std::endl;
+        //std::cout << "Number of snakes in json: " << snakesJSON.size() << std::endl;
+
+        //  SETUP BOARD SNAKES 
+        
+        for (int i = 0; i < snakesJSON.size(); i++){
+            //std::cout << "Snake[" << i << "] body: " << snakesJSON[i]["body"] << std::endl;
+
+            if (snakesJSON[i]["id"] == m["id"]){
+                //std::cout << "Snake[" << i << "] is me!" << std::endl;
+            } else {
+                //std::cout << "Snake[" << i << "] is NOT me!" << std::endl;
+            }
+            
+                //std::cout << "Adding snake to board object." << std::endl;
+
+                Snake snake;
+                for (int j = 0; j < snakesJSON[i]["body"].size(); j++){
+                    //std::cout << "Snake[" << i << "][\"body\"][" << j <<"] " << snakesJSON[i]["body"][j] << std::endl;
+                    snake.body.push_back((Coord){.x = snakesJSON[i]["body"][j]["x"], .y = snakesJSON[i]["body"][j]["y"]});
+                    
+                    
+                }
+                snake.setLength(snakesJSON[i]["body"].size());
+                snake.setHead((Coord){.x=snakesJSON[i]["body"][0]["x"], .y=snakesJSON[i]["body"][0]["y"]});
+                snake.setName(snakesJSON[i]["name"]);
+                snake.setId(snakesJSON[i]["id"]);
+                board.snakes.push_back(snake);
+                
+        }
+
+        //  SETUP BOARD FOOD
+
+        //std::cout << "Board food length: " << b["food"].size() << std::endl;
 
         for (int i = 0; i < b["food"].size(); i++){
             board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
-                 
-            //board.food[i].distance = findDistanceBetweenCoord(me.getHead(), board.food[i].coord);
-            //std::cout << "Board food[" << i << "] X: " << board.food[i].x << " Y: " << board.food[i].y << std::endl;
-            //std::cout << "Distance to food from head: " << board.food[i].distance << " units." << std::endl; 
         }
 
+        /*
         std::cout << "Closest food at x: " << getClosestFoodCoord(board.food, me.getHead()).x << " y: " << getClosestFoodCoord(board.food, me.getHead()).y << std::endl;
         std::cout << "My head position x: " << me.getHead().x << " y: " << me.getHead().y << std::endl;
         std::cout << "My head position x: " << m["head"]["x"] << " y: " << m["head"]["y"] << std::endl;
+        */
+        /*
+        for (int i = 0; i < board.snakes.size(); i++){
+            std::cout << "Snake in board object: " << board.snakes[i].getId() << std::endl;
+        }
+        */
+    
+        //std::cout << "Game ID in game class: " << game.getId() << std::endl;
+        //std::cout << "Board height in board class: " << board.getHeight() << std::endl;
+        //std::cout << "Board width in board class: " << board.getWidth() << std::endl;
 
-        //std::cout << "Food inside board class: " << board.food << std::endl;
-        
+        //  SETUP SCORED MOVES
 
-        //std::cout << "My head position x: " << me.getHead().x << std::endl;
-        //std::cout << "My head position y: " << me.getHead().y << std::endl;
-
-        //me.printBody();
-        
-
-        // AVOID WALLS //
-        // get board size
-        // board.getHeight(), board.getWidth()
+        ScoredMoves scoredMoves;
 
         if (me.getHead().x + 1 >= board.getWidth()){
             scoredMoves.right.setScore(-50);
@@ -197,21 +232,21 @@ int main() {
 
         for (int i = 1; i < me.getLength(); i++){
             if ((me.getHead().x + 1 == me.getBodyCoord(i).x) && (me.getHead().y == me.getBodyCoord(i).y)){
-                scoredMoves.right.setScore(-100);
+                scoredMoves.right.setScore(-150);
             }
             if ((me.getHead().x - 1 == me.getBodyCoord(i).x) && (me.getHead().y == me.getBodyCoord(i).y)){
-                scoredMoves.left.setScore(-100);
+                scoredMoves.left.setScore(-150);
             }
             if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y + 1 == me.getBodyCoord(i).y)){
-                scoredMoves.up.setScore(-100);
+                scoredMoves.up.setScore(-150);
             }
             if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y - 1 == me.getBodyCoord(i).y)){
-                scoredMoves.down.setScore(-100);
+                scoredMoves.down.setScore(-150);
             }
         }
 
         // PREFER TO MOVE TOWARD FOOD WHEN HUNGRY //
-        if (me.getHealth() < 50){
+        if (me.getHealth() < 25){
             std::cout << "My health: " << me.getHealth() << std::endl;
             switch (getDirectionToClosestFood(board.food, me.getHead())){
                 case -1:
@@ -232,7 +267,7 @@ int main() {
         }
 
         // PREFER TO MOVE TOWARD OWN TAIL IF NOT HUNGRY //
-        if (me.getHealth() >= 50){
+        if (me.getHealth() >= 25){
             //std::cout << "My tail position: "
             switch (getDirectionToMyTail(me.body[me.body.size()-1], me.getHead())){
                 case -1:
@@ -270,8 +305,107 @@ int main() {
         }
         
 
+        // AVOID ENEMY SNAKE BODIES //
 
-        //scoredMoves.printCurrentScoredMoves();
+        for (int i = 0; i < board.snakes.size(); i++){
+            for (int j = 0; j < board.snakes[i].body.size(); j++){
+                if (me.getId() != board.snakes[i].getId()){
+
+                
+                if (me.getHead().x + 1 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.right.setScore(-50);
+                }
+                if (me.getHead().x + 2 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.right.setScore(-25);
+                }
+                if (me.getHead().x - 1 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.left.setScore(-50);
+                }
+                if (me.getHead().x - 2 == board.snakes[i].body[j].x && me.getHead().y == board.snakes[i].body[j].y){
+                    scoredMoves.left.setScore(-25);
+                }
+                if (me.getHead().y + 1 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.up.setScore(-50);
+                }
+                if (me.getHead().y + 2 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.up.setScore(-25);
+                }
+                if (me.getHead().y - 1 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.down.setScore(-50);
+                }
+                if (me.getHead().y - 2 == board.snakes[i].body[j].y && me.getHead().x == board.snakes[i].body[j].x){
+                    scoredMoves.down.setScore(-50);
+                }
+                }
+            }
+        }
+
+        // AVOID ENEMY SNAKE HEADS //
+
+        // TODO: Better idea here might be to find the nearest enemy head and add points to the directions that turn away from it..
+
+        for (int i = 0; i < board.snakes.size(); i++){
+            if (me.getId() != board.snakes[i].getId() && me.getLength() <= board.snakes[i].body.size()){
+                
+                if (me.getHead().x + 1 == board.snakes[i].getHead().x - 1 && me.getHead().y == board.snakes[i].getHead().y){
+                    scoredMoves.right.setScore(-100);
+                }
+                if (me.getHead().x + 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y - 1){
+                    scoredMoves.right.setScore(-100);
+                    scoredMoves.up.setScore(-100);
+                }
+                if (me.getHead().x + 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y + 1){
+                    scoredMoves.right.setScore(-100);
+                    scoredMoves.down.setScore(-100);
+                }
+                
+                if (me.getHead().x - 1 == board.snakes[i].getHead().x + 1 && me.getHead().y == board.snakes[i].getHead().y){
+                    scoredMoves.left.setScore(-100);
+                }
+                if (me.getHead().x - 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y - 1){
+                    scoredMoves.left.setScore(-100);
+                    scoredMoves.up.setScore(-100);
+                }
+                if (me.getHead().x - 1 == board.snakes[i].getHead().x && me.getHead().y == board.snakes[i].getHead().y + 1){
+                    scoredMoves.left.setScore(-100);
+                    scoredMoves.down.setScore(-100);
+                }
+                
+                if (me.getHead().x == board.snakes[i].getHead().x && me.getHead().y + 1 == board.snakes[i].getHead().y - 1){
+                    scoredMoves.up.setScore(-100);
+                }
+                if (me.getHead().x == board.snakes[i].getHead().x && me.getHead().y - 1 == board.snakes[i].getHead().y + 1){
+                    scoredMoves.down.setScore(-100);
+                }
+            }
+            
+        }
+
+        //  PREFER MOVE TOWARD ENEMY SNAKE TAILS //
+        //  if we have a good amt of health
+        //  find nearest enemy snake tail
+        if(me.getHealth() >= 50){
+            switch (getDirectionToClosestTail(getClosestEnemyTailCoord(board.snakes, me.getHead()), me.getHead())){
+                case -1:
+                    break;
+                case 0:
+                    scoredMoves.left.setScore(+15);
+                    break;
+                case 1:
+                    scoredMoves.right.setScore(+15);
+                    break;
+                case 2:
+                    scoredMoves.down.setScore(+15);
+                    break;
+                case 3:
+                    scoredMoves.up.setScore(+15);
+                    break;
+            }
+        }
+        
+
+
+        scoredMoves.printCurrentScoredMoves();
 
         Move best = scoredMoves.returnHighestScoreMove();
 
@@ -299,7 +433,7 @@ int main() {
         auto turn_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(turn_end - turn_start);
 
         //std::cout << "Time elapsed to move: " << turnTimeElapsed << std::endl;
-        std::cout << "Time elapsed to move (chrono): " << turn_duration.count() << "ns" << std::endl;
+        //std::cout << "Time elapsed to move (chrono): " << turn_duration.count() << "ns" << std::endl;
         //std::cout << "Time elapsed to move (chrono): " << turn_duration.count() / 1000000000 << "s" << std::endl;
 
         // send string response to client
@@ -316,7 +450,7 @@ int main() {
         std::cout << "Game ended.\n" << "Details:\n";
 
         std::cout << "Game ID: "<< g["id"] << std::endl;
-        std::cout << "Data: " << parsedReq << std::endl;
+        //std::cout << "Data: " << std::setw(4) << parsedReq << std::endl;
     });
     
 

@@ -248,6 +248,25 @@ Coord getClosestFoodCoord(std::vector<Coord> allFood, Coord start){
     return allFood[indexOfClosestFood];
 }
 
+Coord getClosestEnemyTailCoord(std::vector<Snake> allSnakes, Coord start){
+    int indexOfSnakeWithClosestTail = 0;
+    Coord myTailCoord = allSnakes[0].body[allSnakes[0].body.size()-1];
+    int distanceToMyOwnTail = findDistanceBetweenCoord(start, myTailCoord);
+    int distanceToClosestTail = distanceToMyOwnTail;
+    for (int i = 0; i < allSnakes.size(); i++){
+        int tailIndex = allSnakes[i].body.size() - 1;
+        Coord tailCoord = allSnakes[i].body[tailIndex];
+        int distanceToThisTail = findDistanceBetweenCoord(start, tailCoord);
+
+        if (distanceToThisTail < distanceToClosestTail) {
+            distanceToClosestTail = distanceToThisTail;
+            return tailCoord;
+        }
+    }
+
+    return myTailCoord;
+}
+
 int getDirectionToClosestFood(std::vector<Coord> allFood, Coord start){
     Coord closeFood = getClosestFoodCoord(allFood, start);
 
@@ -272,6 +291,27 @@ int getDirectionToClosestFood(std::vector<Coord> allFood, Coord start){
 }
 
 int getDirectionToMyTail(Coord tailPos, Coord head){
+    if (tailPos.x < head.x){
+        return 0;
+        //return "left";
+    }
+    if (tailPos.x > head.x){
+        return 1;
+        //return "right";
+    }
+    if (tailPos.y < head.y){
+        return 2;
+        //return "down";
+    }
+    if (tailPos.y > head.y){
+        return 3;
+        //return "up";
+    }
+
+    return -1;
+}
+
+int getDirectionToClosestTail(Coord tailPos, Coord head){
     if (tailPos.x < head.x){
         return 0;
         //return "left";
