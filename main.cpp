@@ -68,7 +68,7 @@ int main() {
         json b = parsedReq["board"];
         json m = parsedReq["you"];
         
-        RulesetSettings rulesetSettings = RulesetSettings();
+        //RulesetSettings rulesetSettings = RulesetSettings();
         Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
 
@@ -98,7 +98,7 @@ int main() {
 
     svr.Post("/move", [](const httplib::Request& req, httplib::Response &res) {
 
-        time_t turnStart = time(NULL);
+        //time_t turnStart = time(NULL);
         auto turn_start = Clock::now();
         
         json parsedReq = json::parse(req.body);
@@ -107,7 +107,7 @@ int main() {
         json snakesJSON = b["snakes"];
         json m = parsedReq["you"];
 
-        RulesetSettings rulesetSettings = RulesetSettings();
+        //RulesetSettings rulesetSettings = RulesetSettings();
         Ruleset ruleset = Ruleset(g["ruleset"]["name"], g["ruleset"]["version"]);
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
         Board board = Board(b["height"], b["width"]);
@@ -143,7 +143,7 @@ int main() {
 
         //  SETUP BOARD SNAKES 
         
-        for (int i = 0; i < snakesJSON.size(); i++){
+        for (unsigned int i = 0; i < snakesJSON.size(); i++){
             //std::cout << "Snake[" << i << "] body: " << snakesJSON[i]["body"] << std::endl;
 
             if (snakesJSON[i]["id"] == m["id"]){
@@ -155,7 +155,7 @@ int main() {
                 //std::cout << "Adding snake to board object." << std::endl;
 
                 Snake snake;
-                for (int j = 0; j < snakesJSON[i]["body"].size(); j++){
+                for (unsigned int j = 0; j < snakesJSON[i]["body"].size(); j++){
                     //std::cout << "Snake[" << i << "][\"body\"][" << j <<"] " << snakesJSON[i]["body"][j] << std::endl;
                     snake.body.push_back((Coord){.x = snakesJSON[i]["body"][j]["x"], .y = snakesJSON[i]["body"][j]["y"]});
                     
@@ -173,7 +173,7 @@ int main() {
 
         //std::cout << "Board food length: " << b["food"].size() << std::endl;
 
-        for (int i = 0; i < b["food"].size(); i++){
+        for (unsigned int i = 0; i < b["food"].size(); i++){
             board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
         }
 
@@ -310,8 +310,8 @@ int main() {
 
         // AVOID ENEMY SNAKE BODIES //
 
-        for (int i = 0; i < board.snakes.size(); i++){
-            for (int j = 0; j < board.snakes[i].body.size(); j++){
+        for (unsigned int i = 0; i < board.snakes.size(); i++){
+            for (unsigned int j = 0; j < board.snakes[i].body.size(); j++){
                 if (me.getId() != board.snakes[i].getId()){
 
                 
@@ -347,8 +347,8 @@ int main() {
 
         // TODO: Better idea here might be to find the nearest enemy head and add points to the directions that turn away from it..
 
-        for (int i = 0; i < board.snakes.size(); i++){
-            if (me.getId() != board.snakes[i].getId() && me.getLength() <= board.snakes[i].body.size()){
+        for (unsigned int i = 0; i < board.snakes.size(); i++){
+            if (me.getId() != board.snakes[i].getId() && unsigned(me.getLength()) <= board.snakes[i].body.size()){
                 
                 if (me.getHead().x + 1 == board.snakes[i].getHead().x - 1 && me.getHead().y == board.snakes[i].getHead().y){
                     scoredMoves.right.setScore(-100);
@@ -428,10 +428,10 @@ int main() {
 
         //std::cout << "Response json as string: " << s << std::endl;
 
-        time_t turnEnd = time(NULL);
+        //time_t turnEnd = time(NULL);
         auto turn_end = Clock::now();
 
-        time_t turnTimeElapsed = turnEnd - turnStart;
+        //time_t turnTimeElapsed = turnEnd - turnStart;
 
         auto turn_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(turn_end - turn_start);
 

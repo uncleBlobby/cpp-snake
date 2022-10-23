@@ -215,7 +215,7 @@ int Snake::getLength() const {
 
 void Snake::printBody() const {
     std::cout << "Printing body member of class:" << std::endl;
-    for (int i = 0; i < length; i++){
+    for (unsigned int i = 0; i < length; i++){
         std::cout << "Body[" << i << "] X: " << body[i].x << ", Y: " << body[i].y << std::endl;
     }
 }
@@ -239,7 +239,7 @@ int findDistanceBetweenCoord(Coord start, Coord end){
 Coord getClosestFoodCoord(std::vector<Coord> allFood, Coord start){
     int indexOfClosestFood = 0;
 
-    for (int i = 0; i < allFood.size(); i++){
+    for (unsigned int i = 0; i < allFood.size(); i++){
         if (findDistanceBetweenCoord(start, allFood[i]) < findDistanceBetweenCoord(start, allFood[indexOfClosestFood])){
             indexOfClosestFood = i;
         }
@@ -249,11 +249,11 @@ Coord getClosestFoodCoord(std::vector<Coord> allFood, Coord start){
 }
 
 Coord getClosestEnemyTailCoord(std::vector<Snake> allSnakes, Coord start){
-    int indexOfSnakeWithClosestTail = 0;
+    //int indexOfSnakeWithClosestTail = 0;
     Coord myTailCoord = allSnakes[0].body[allSnakes[0].body.size()-1];
     int distanceToMyOwnTail = findDistanceBetweenCoord(start, myTailCoord);
     int distanceToClosestTail = distanceToMyOwnTail;
-    for (int i = 0; i < allSnakes.size(); i++){
+    for (unsigned int i = 0; i < allSnakes.size(); i++){
         int tailIndex = allSnakes[i].body.size() - 1;
         Coord tailCoord = allSnakes[i].body[tailIndex];
         int distanceToThisTail = findDistanceBetweenCoord(start, tailCoord);
