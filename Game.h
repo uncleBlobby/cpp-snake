@@ -163,6 +163,11 @@ class Snake {
         void printBody() const;
 };
 
+struct Food {
+    Coord coord;
+    //int distance;
+};
+
 class Board {
     private:
         unsigned int height;
@@ -183,3 +188,10 @@ class Board {
         unsigned int getHeight() const;
 
 };
+
+
+int findDistanceBetweenCoord(Coord start, Coord end);
+
+Coord getClosestFoodCoord(std::vector<Coord> allFood, Coord start);
+
+int getDirectionToClosestFood(std::vector<Coord> allFood, Coord start);

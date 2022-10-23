@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 RulesetSettings::RulesetSettings(){
     foodSpawnChance = 0;
@@ -221,4 +222,51 @@ void Snake::printBody() const {
 
 Coord Snake::getBodyCoord(int i) const {
     return body[i];
+}
+
+
+int findDistanceBetweenCoord(Coord start, Coord end){
+    int distance = 0;
+
+    int distanceX = abs(start.x - end.x);
+    int distanceY = abs(start.y - end.y);
+
+    distance = distanceX + distanceY;
+
+    return distance;
+}
+
+Coord getClosestFoodCoord(std::vector<Coord> allFood, Coord start){
+    int indexOfClosestFood = 0;
+
+    for (int i = 0; i < allFood.size(); i++){
+        if (findDistanceBetweenCoord(start, allFood[i]) < findDistanceBetweenCoord(start, allFood[indexOfClosestFood])){
+            indexOfClosestFood = i;
+        }
+    }
+
+    return allFood[indexOfClosestFood];
+}
+
+int getDirectionToClosestFood(std::vector<Coord> allFood, Coord start){
+    Coord closeFood = getClosestFoodCoord(allFood, start);
+
+    if (closeFood.x < start.x){
+        return 0;
+        //return "left";
+    }
+    if (closeFood.x > start.x){
+        return 1;
+        //return "right";
+    }
+    if (closeFood.y < start.y){
+        return 2;
+        //return "down";
+    }
+    if (closeFood.y > start.y){
+        return 3;
+        //return "up";
+    }
+
+    return -1;
 }

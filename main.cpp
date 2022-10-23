@@ -134,22 +134,15 @@ int main() {
 
         for (int i = 0; i < b["food"].size(); i++){
             board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
-            std::cout << "Board food[" << i << "] X: " << board.food[i].x << " Y: " << board.food[i].y << std::endl; 
+                 
+            //board.food[i].distance = findDistanceBetweenCoord(me.getHead(), board.food[i].coord);
+            //std::cout << "Board food[" << i << "] X: " << board.food[i].x << " Y: " << board.food[i].y << std::endl;
+            //std::cout << "Distance to food from head: " << board.food[i].distance << " units." << std::endl; 
         }
 
-        //  TODO: figure out this food stuff -- currently seems to print even when the food value is null
-        /*
-        for(int i = 0; i < board.getHeight() * board.getWidth(); i++){
-            if ((b["food"][i]["x"] < board.getWidth()) && (b["food"][i]["y"] < board.getHeight())){
-                std::cout << "Food at [" << i << "]: " << b["food"][i] << std::endl;
-                std::cout << "Food: X:" << b["food"][i]["x"] << " Y:" << b["food"][i]["y"] << std::endl;
-                //board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
-
-                //std::cout << "Food inside board class: X:" << board.food[i].x << " Y:" << board.food[i].y << std::endl;
-            }
-            
-        }
-        */
+        std::cout << "Closest food at x: " << getClosestFoodCoord(board.food, me.getHead()).x << " y: " << getClosestFoodCoord(board.food, me.getHead()).y << std::endl;
+        std::cout << "My head position x: " << me.getHead().x << " y: " << me.getHead().y << std::endl;
+        std::cout << "My head position x: " << m["head"]["x"] << " y: " << m["head"]["y"] << std::endl;
 
         //std::cout << "Food inside board class: " << board.food << std::endl;
         
@@ -214,6 +207,25 @@ int main() {
             if ((me.getHead().x == me.getBodyCoord(i).x) && (me.getHead().y - 1 == me.getBodyCoord(i).y)){
                 scoredMoves.down.setScore(-100);
             }
+        }
+
+        // PREFER TO MOVE TOWARD FOOD WHEN HUNGRY //
+
+        switch (getDirectionToClosestFood(board.food, me.getHead())){
+            case -1:
+                break;
+            case 0:
+                scoredMoves.left.setScore(+100 - me.getHealth());
+                break;
+            case 1:
+                scoredMoves.right.setScore(+100 - me.getHealth());
+                break;
+            case 2:
+                scoredMoves.down.setScore(+100 - me.getHealth());
+                break;
+            case 3:
+                scoredMoves.up.setScore(+100 - me.getHealth());
+                break;
         }
 
 
