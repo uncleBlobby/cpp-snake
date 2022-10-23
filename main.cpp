@@ -111,27 +111,49 @@ int main() {
         Game game = Game(g["id"], ruleset, g["map"], g["timeout"], g["source"]);
         Board board = Board(b["height"], b["width"]);
 
+        //  SETUP MY HEAD
+
+        Coord myHead;
+        myHead.x = m["head"]["x"];
+        myHead.y = m["head"]["y"];
+
+        // SETUP MY SNAKE
+
+        Snake me;
+        me.setHead(myHead);
+        me.setLength(m["length"]);
+        me.setHealth(m["health"]);
+
+        // SETUP MY BODY
+        
+        for (int i = 0; i < m["length"]; i++){
+            //std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
+            me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
+        }
+
         //std::cout << "Me object in request: " << m << std::endl;
         //std::cout << "My body: " << m["body"] << std::endl;
         //std::cout << "My length: " << m["length"] << std::endl;
 
-        std::cout << "Snakes in json: " << snakesJSON << std::endl;
-        std::cout << "Number of snakes in json: " << snakesJSON.size() << std::endl;
+        //std::cout << "Snakes in json: " << snakesJSON << std::endl;
+        //std::cout << "Number of snakes in json: " << snakesJSON.size() << std::endl;
 
+        //  SETUP BOARD SNAKES 
+        
         for (int i = 0; i < snakesJSON.size(); i++){
-            std::cout << "Snake[" << i << "] body: " << snakesJSON[i]["body"] << std::endl;
+            //std::cout << "Snake[" << i << "] body: " << snakesJSON[i]["body"] << std::endl;
 
             if (snakesJSON[i]["id"] == m["id"]){
-                std::cout << "Snake[" << i << "] is me!" << std::endl;
+                //std::cout << "Snake[" << i << "] is me!" << std::endl;
             } else {
-                std::cout << "Snake[" << i << "] is NOT me!" << std::endl;
+                //std::cout << "Snake[" << i << "] is NOT me!" << std::endl;
             }
             
-                std::cout << "Adding snake to board object." << std::endl;
+                //std::cout << "Adding snake to board object." << std::endl;
 
                 Snake snake;
                 for (int j = 0; j < snakesJSON[i]["body"].size(); j++){
-                    std::cout << "Snake[" << i << "][\"body\"][" << j <<"] " << snakesJSON[i]["body"][j] << std::endl;
+                    //std::cout << "Snake[" << i << "][\"body\"][" << j <<"] " << snakesJSON[i]["body"][j] << std::endl;
                     snake.body.push_back((Coord){.x = snakesJSON[i]["body"][j]["x"], .y = snakesJSON[i]["body"][j]["y"]});
                     
                     
@@ -144,61 +166,32 @@ int main() {
                 
         }
 
+        //  SETUP BOARD FOOD
+
+        //std::cout << "Board food length: " << b["food"].size() << std::endl;
+
+        for (int i = 0; i < b["food"].size(); i++){
+            board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
+        }
+
+        /*
+        std::cout << "Closest food at x: " << getClosestFoodCoord(board.food, me.getHead()).x << " y: " << getClosestFoodCoord(board.food, me.getHead()).y << std::endl;
+        std::cout << "My head position x: " << me.getHead().x << " y: " << me.getHead().y << std::endl;
+        std::cout << "My head position x: " << m["head"]["x"] << " y: " << m["head"]["y"] << std::endl;
+        */
+        /*
         for (int i = 0; i < board.snakes.size(); i++){
             std::cout << "Snake in board object: " << board.snakes[i].getId() << std::endl;
         }
-        
-
-        
-
-
+        */
+    
         //std::cout << "Game ID in game class: " << game.getId() << std::endl;
         //std::cout << "Board height in board class: " << board.getHeight() << std::endl;
         //std::cout << "Board width in board class: " << board.getWidth() << std::endl;
 
+        //  SETUP SCORED MOVES
+
         ScoredMoves scoredMoves;
-
-        Coord myHead;
-        myHead.x = m["head"]["x"];
-        myHead.y = m["head"]["y"];
-
-        Snake me;
-        me.setHead(myHead);
-        me.setLength(m["length"]);
-        me.setHealth(m["health"]);
-
-        for (int i = 0; i < m["length"]; i++){
-            //std::cout << "My body [" << i << "]: " << m["body"][i] << std::endl;
-            me.body.push_back((struct Coord){.x=m["body"][i]["x"], .y=m["body"][i]["y"]});
-        }
-
-        //std::cout << "Board food: " << b["food"] << std::endl;
-        std::cout << "Board food length: " << b["food"].size() << std::endl;
-
-        for (int i = 0; i < b["food"].size(); i++){
-            board.food.push_back((struct Coord){.x=b["food"][i]["x"], .y=b["food"][i]["y"]});
-                 
-            //board.food[i].distance = findDistanceBetweenCoord(me.getHead(), board.food[i].coord);
-            //std::cout << "Board food[" << i << "] X: " << board.food[i].x << " Y: " << board.food[i].y << std::endl;
-            //std::cout << "Distance to food from head: " << board.food[i].distance << " units." << std::endl; 
-        }
-
-        std::cout << "Closest food at x: " << getClosestFoodCoord(board.food, me.getHead()).x << " y: " << getClosestFoodCoord(board.food, me.getHead()).y << std::endl;
-        std::cout << "My head position x: " << me.getHead().x << " y: " << me.getHead().y << std::endl;
-        std::cout << "My head position x: " << m["head"]["x"] << " y: " << m["head"]["y"] << std::endl;
-
-        //std::cout << "Food inside board class: " << board.food << std::endl;
-        
-
-        //std::cout << "My head position x: " << me.getHead().x << std::endl;
-        //std::cout << "My head position y: " << me.getHead().y << std::endl;
-
-        //me.printBody();
-        
-
-        // AVOID WALLS //
-        // get board size
-        // board.getHeight(), board.getWidth()
 
         if (me.getHead().x + 1 >= board.getWidth()){
             scoredMoves.right.setScore(-50);
@@ -312,6 +305,11 @@ int main() {
         }
         
 
+        // AVOID ENEMY SNAKE BODIES //
+
+        
+        
+
 
         //scoredMoves.printCurrentScoredMoves();
 
@@ -341,7 +339,7 @@ int main() {
         auto turn_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(turn_end - turn_start);
 
         //std::cout << "Time elapsed to move: " << turnTimeElapsed << std::endl;
-        std::cout << "Time elapsed to move (chrono): " << turn_duration.count() << "ns" << std::endl;
+        //std::cout << "Time elapsed to move (chrono): " << turn_duration.count() << "ns" << std::endl;
         //std::cout << "Time elapsed to move (chrono): " << turn_duration.count() / 1000000000 << "s" << std::endl;
 
         // send string response to client
@@ -358,7 +356,7 @@ int main() {
         std::cout << "Game ended.\n" << "Details:\n";
 
         std::cout << "Game ID: "<< g["id"] << std::endl;
-        std::cout << "Data: " << parsedReq << std::endl;
+        //std::cout << "Data: " << std::setw(4) << parsedReq << std::endl;
     });
     
 

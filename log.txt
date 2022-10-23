@@ -1839,3 +1839,243 @@
     }
   }
 }
+{
+  "game": {
+    "id": "bbdf82c7-13e8-46be-8b63-ab413ccd3143",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 6,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "6fe9fa9a-535a-440f-96fc-9d16d1c7586d",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 94,
+        "body": [
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 2,
+          "y": 4
+        },
+        "length": 3,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#FF5733",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 10,
+        "y": 4
+      },
+      {
+        "x": 0,
+        "y": 4
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "6fe9fa9a-535a-440f-96fc-9d16d1c7586d",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 94,
+    "body": [
+      {
+        "x": 2,
+        "y": 4
+      },
+      {
+        "x": 2,
+        "y": 5
+      },
+      {
+        "x": 3,
+        "y": 5
+      }
+    ],
+    "head": {
+      "x": 2,
+      "y": 4
+    },
+    "length": 3,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
+{
+  "game": {
+    "id": "6d722b00-8fe0-46e5-a905-04b2776c5319",
+    "ruleset": {
+      "name": "standard",
+      "version": "cli",
+      "settings": {
+        "foodSpawnChance": 15,
+        "minimumFood": 1,
+        "hazardDamagePerTurn": 14,
+        "hazardMap": "",
+        "hazardMapAuthor": "",
+        "royale": {
+          "shrinkEveryNTurns": 25
+        },
+        "squad": {
+          "allowBodyCollisions": false,
+          "sharedElimination": false,
+          "sharedHealth": false,
+          "sharedLength": false
+        }
+      }
+    },
+    "map": "standard",
+    "timeout": 500,
+    "source": ""
+  },
+  "turn": 20,
+  "board": {
+    "height": 11,
+    "width": 11,
+    "snakes": [
+      {
+        "id": "8b34cafb-50dd-4209-a3e1-7a33aa10a95a",
+        "name": "dummySnake",
+        "latency": "0",
+        "health": 80,
+        "body": [
+          {
+            "x": 1,
+            "y": 7
+          },
+          {
+            "x": 1,
+            "y": 6
+          },
+          {
+            "x": 1,
+            "y": 5
+          }
+        ],
+        "head": {
+          "x": 1,
+          "y": 7
+        },
+        "length": 3,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+          "color": "#FF5733",
+          "head": "shades",
+          "tail": "bolt"
+        }
+      }
+    ],
+    "food": [
+      {
+        "x": 6,
+        "y": 10
+      },
+      {
+        "x": 6,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "y": 1
+      },
+      {
+        "x": 6,
+        "y": 4
+      },
+      {
+        "x": 7,
+        "y": 10
+      },
+      {
+        "x": 8,
+        "y": 10
+      },
+      {
+        "x": 2,
+        "y": 7
+      }
+    ],
+    "hazards": []
+  },
+  "you": {
+    "id": "8b34cafb-50dd-4209-a3e1-7a33aa10a95a",
+    "name": "dummySnake",
+    "latency": "0",
+    "health": 80,
+    "body": [
+      {
+        "x": 1,
+        "y": 7
+      },
+      {
+        "x": 1,
+        "y": 6
+      },
+      {
+        "x": 1,
+        "y": 5
+      }
+    ],
+    "head": {
+      "x": 1,
+      "y": 7
+    },
+    "length": 3,
+    "shout": "",
+    "squad": "",
+    "customizations": {
+      "color": "#FF5733",
+      "head": "shades",
+      "tail": "bolt"
+    }
+  }
+}
